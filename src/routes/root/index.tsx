@@ -1,5 +1,4 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import TestButton from '../../components/ui-kit/test-button';
 
 function Root() {
   const location = useLocation();
@@ -9,7 +8,6 @@ function Root() {
       <h1>Шапка</h1>
       <main>
         <Outlet />
-        <TestButton />
       </main>
 
       {location.pathname === '/' ? (
