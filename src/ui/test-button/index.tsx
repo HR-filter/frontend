@@ -9,7 +9,6 @@ export default function TestButton() {
         '&.Mui-disabled': {
           cursor: 'not-allowed',
           pointerEvents: 'all !important',
-          backgroundColor: (theme) => theme.palette.primary.light,
         },
       }}
       disabled

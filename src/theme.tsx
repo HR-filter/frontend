@@ -4,7 +4,6 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      light: '#dde0e4', // Цвет для неактивного состояния. Подумать как можно назвать по-другому
       main: '#5a9bff', // Основной синий цвет
       dark: '#1d6bf3', // Темный синий для активных элементов
     },
@@ -21,6 +20,9 @@ const theme = createTheme({
     text: {
       primary: '#1a1b22', // Основной цвет текста
       secondary: '#797981', // Вторичный цвет текста
+    },
+    action: {
+      disabledBackground: '#dde0e4', // Цвет для неактивного состояния. Подумать как можно назвать по-другому
     },
   },
 });
