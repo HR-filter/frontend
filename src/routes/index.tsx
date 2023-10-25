@@ -24,7 +24,7 @@ const router = createBrowserRouter(
           </Offline>
         </>
       }
-      errorElement={<ErrorBoundary />}
+      // errorElement={<ErrorBoundary />}
     >
       {/* Main Page */} // тут пока не знаю. надо узнать, что обычно
       отображается на главной. возможно уже роут с фильтрами сразу

@@ -1,25 +1,24 @@
 .checkboxLabel {
-    font-family: 'YS Text, sans-serif';
-    font-size: 14px;
-    color: #08f8;
-    height: 28px;
+  font-family: 'YS Text, sans-serif';
+  font-size: 14px;
+  color: #08f8;
+  height: 28px;
 }
 
 .checkboxControl {
-    .MuiSvgIcon-root {
-        font-size: 14px;
-        margin: 0;
-        padding: 0;
-        color: rgba(0, 255, 47, 0.533);
-
-    }
+  .MuiSvgIcon-root {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 255, 47, 0.533);
+  }
 }
 
 /* CheckboxLabel.css */
 .custom-checkbox .MuiIconButton-root {
-    background-color: white; /* Фон чекбокса белый */
-  }
-  
-  .custom-checkbox .Mui-checked {
-    color: #00e676; /* Галочка синяя */
-  }
+  background-color: white; /* Фон чекбокса белый */
+}
+
+.custom-checkbox .Mui-checked {
+  color: #00e676; /* Галочка синяя */
+}
