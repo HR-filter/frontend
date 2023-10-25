@@ -46,6 +46,15 @@ const theme = createTheme({
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'YS Text, sans-serif',
+          fontWeight: 400,
+          fontSize: 14,
+        },
+      },
+    },
   },
 });
 
