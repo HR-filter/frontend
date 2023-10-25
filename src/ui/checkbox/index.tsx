@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/joy/Checkbox';
 
 interface CheckboxProps {
   label: string;
@@ -26,8 +27,10 @@ export default function CheckboxLabel({
       label={label}
       control={
         <Checkbox
+          // variant="outlined"
           checked={isChecked}
           onChange={handleChange}
+          size="medium"
         />
       }
       sx={{
