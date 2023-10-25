@@ -1,0 +1,22 @@
+.header {
+  min-height: 64px;
+  padding: 20px 40px;
+  background-color: black;
+  display: flex;
+  justify-content: end;
+}
+
+.notificationButton {
+  width: 24px;
+  color: white;
+  background-image: url('../../assets/images/bell.svg');
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.notificationButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
