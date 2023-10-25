@@ -8,7 +8,7 @@ import {
 import Root from './root';
 import VacancyPage from '../pages/VacancyPage';
 import ErrorBoundary from './ErrorBoundary';
-import CheckboxLabel from '../ui/checkbox';
+import CheckboxLabel from '../ui/checkbox/index';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,7 +42,7 @@ const router = createBrowserRouter(
       />
       {/*  Роут для проверки своих компонентов в адресной строке ввест /test */}
       <Route
-        path="test"
+        path="/test"
         element={<CheckboxLabel label="Тестовое поле" checked />}
       />
     </Route>,

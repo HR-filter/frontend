@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/joy/Checkbox';
+import './index.module.css';
 
-interface CheckboxProps {
+interface CheckboxLabelProps {
   label: string;
   checked?: boolean;
 }
 
-export default function CheckboxLabel({
+const CheckboxLabel: React.FC<CheckboxLabelProps> = ({
   label,
   checked = false,
-}: CheckboxProps) {
+}) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   useEffect(() => {
@@ -27,10 +27,15 @@ export default function CheckboxLabel({
       label={label}
       control={
         <Checkbox
-          // variant="outlined"
           checked={isChecked}
           onChange={handleChange}
           size="medium"
+          sx={{
+            // Добавьте стилизацию для иконки чекбокса здесь
+            '& .MuiSvgIcon-root': {
+              color: 'primary', // Пример стилизации цвета иконки
+            },
+          }}
         />
       }
       sx={{
@@ -42,4 +47,6 @@ export default function CheckboxLabel({
       }}
     />
   );
-}
+};
+
+export default CheckboxLabel;

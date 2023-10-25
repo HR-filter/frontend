@@ -14,3 +14,12 @@
 
     }
 }
+
+/* CheckboxLabel.css */
+.custom-checkbox .MuiIconButton-root {
+    background-color: white; /* Фон чекбокса белый */
+  }
+  
+  .custom-checkbox .Mui-checked {
+    color: #00e676; /* Галочка синяя */
+  }
