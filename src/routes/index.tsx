@@ -6,6 +6,7 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import Root from './root';
+import VacancyPage from '../pages/VacancyPage';
 import ErrorBoundary from './ErrorBoundary';
 import TestButton from '../ui/test-button';
 
@@ -25,9 +26,20 @@ const router = createBrowserRouter(
       }
       errorElement={<ErrorBoundary />}
     >
-      {/* Main Page */}
-      <Route index element={<p>Здесь мейн пейдж</p>} />
-
+      {/* Main Page */} // тут пока не знаю. надо узнать, что обычно
+      отображается на главной. возможно уже роут с фильтрами сразу
+      {/* <Route index element={<p>Здесь мейн пейдж</p>} /> */}
+      <Route
+        index
+        path="/candidate"
+        element={<p>Здесь собранная страница фильтр по кандидатам</p>}
+      />
+      <Route index path="/vacancy" element={<VacancyPage />} />
+      <Route
+        index
+        path="/favourite"
+        element={<p>Здесь собранная страница favourite</p>}
+      />
       {/*  Роут для проверки своих компонентов в адресной строке ввест /test */}
       <Route path="test" element={<TestButton />} />
     </Route>,
