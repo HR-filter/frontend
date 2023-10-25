@@ -1,9 +1,4 @@
-.page {
-  height: 100%;
-  padding-left: 186px;
-}
-
-.pageSideMenu {
+.aside {
   overflow-y: auto;
   position: fixed;
   top: 0;

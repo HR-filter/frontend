@@ -2,19 +2,17 @@ import { Outlet } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
-import styles from './index.module.css';
+import styles from './Root.module.css';
 
 function Root() {
   return (
-    <div className={styles.page}>
-      <aside className={styles.pageSideMenu}>
+    <div className={styles.root}>
+      <aside className={styles.rootSideMenu}>
         <Logo />
         <Navigation />
       </aside>
-      <main className={styles.pageMain}>
-        <Header />
-        <Outlet />
-      </main>
+      <Header />
+      <Outlet />
     </div>
   );
 }
