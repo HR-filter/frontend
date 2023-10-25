@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import './assets/fonts/fonts.css';
 
 // Create a theme instance.
 const theme = createTheme({
@@ -24,6 +25,16 @@ const theme = createTheme({
     action: {
       disabledBackground: '#dde0e4', // Цвет для неактивного состояния. Подумать как можно назвать по-другому
     },
+  },
+  typography: {
+    fontFamily: 'YS Display, YS Text, Roboto, Inter, Arial, sans-serif', // Default font for most text
+    h1: {
+      fontFamily: 'YS Display, sans-serif', // Custom font for h1
+    },
+    button: {
+      fontFamily: 'YS Text, sans-serif', // Custom font for buttons
+    },
+    // Add more font styles as needed
   },
 });
 
