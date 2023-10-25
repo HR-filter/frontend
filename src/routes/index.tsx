@@ -8,7 +8,7 @@ import {
 import Root from './root';
 import VacancyPage from '../pages/VacancyPage';
 import ErrorBoundary from './ErrorBoundary';
-import TestButton from '../ui/test-button';
+import SearchBar from '../ui/search-bar';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,7 +41,7 @@ const router = createBrowserRouter(
         element={<p>Здесь собранная страница favourite</p>}
       />
       {/*  Роут для проверки своих компонентов в адресной строке ввест /test */}
-      <Route path="test" element={<TestButton />} />
+      <Route path="/test" element={<SearchBar value="Поиск" />} />
     </Route>,
   ),
 );
