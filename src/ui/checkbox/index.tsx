@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import './index.module.css';
 
 interface CheckboxLabelProps {
   label: string;
