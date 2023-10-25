@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import Root from './root';
 import ErrorBoundary from './ErrorBoundary';
-import TestButton from '../ui/test-button';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,7 +28,7 @@ const router = createBrowserRouter(
       <Route index element={<p>Здесь мейн пейдж</p>} />
 
       {/*  Роут для проверки своих компонентов в адресной строке ввест /test */}
-      <Route path="test" element={<TestButton />} />
+      <Route path="test" element={<p>Сюда вставлять тестовый компонент</p>} />
     </Route>,
   ),
 );
