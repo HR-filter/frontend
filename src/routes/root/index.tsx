@@ -1,25 +1,21 @@
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import MainPage from '../../components/MainPage';
+import { Outlet } from 'react-router-dom';
+import Logo from '../../components/Logo';
+import Navigation from '../../components/Navigation';
+import Header from '../../components/Header';
+import styles from './index.module.css';
 
 function Root() {
-  const location = useLocation();
-
   return (
-    // <div>
-    //   <h1>Шапка</h1>
-    //   <main>
-    //     <Outlet />
-    //   </main>
-
-    //   {location.pathname === '/' ? (
-    //     <Link to="/test" style={{ margin: '50px', flex: '0 0 auto' }}>
-    //       <button>Страница с тестовым компонентом</button>
-    //     </Link>
-    //   ) : null}
-
-    //   <footer />
-    // </div>
-    <MainPage />
+    <div className={styles.page}>
+      <aside className={styles.pageSideMenu}>
+        <Logo />
+        <Navigation />
+      </aside>
+      <main className={styles.pageMain}>
+        <Header />
+        <Outlet />
+      </main>
+    </div>
   );
 }
 

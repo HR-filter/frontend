@@ -11,19 +11,19 @@ function Navigation() {
     <nav className={styles.navigation}>
       <ul className={styles.navigationList}>
         <li className={styles.navigationListItem}>
-          <Link className={styles.navigationLink} to="#">
+          <Link className={styles.navigationLink} to="/candidate">
             <img src={userIconPath} alt="Кандидаты"></img>
             <span>Кандидаты</span>
           </Link>
         </li>
         <li className={styles.navigationListItem}>
-          <Link className={styles.navigationLink} to="#">
+          <Link className={styles.navigationLink} to="/vacancy">
             <img src={suitcaseIconPath} alt="Вакансии"></img>
             <span>Вакансии</span>
           </Link>
         </li>
         <li className={styles.navigationListItem}>
-          <Link className={styles.navigationLink} to="#">
+          <Link className={styles.navigationLink} to="/favourite">
             <img src={lentaIconPath} alt="Избранное"></img>
             <span>Избранное</span>
           </Link>
