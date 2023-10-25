@@ -1,4 +1,4 @@
-import logoPath from '../../assets/images/logo.svg';
+import logoPath from '../../assets/images/icons/logo.svg';
 import styles from './Logo.module.css';
 
 export default function Logo() {

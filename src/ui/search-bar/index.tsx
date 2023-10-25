@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
-import { FC, useState } from 'react';
+import { FC, SetStateAction, useState } from 'react';
 import loupePath from '../../assets/images/search.svg';
 
 interface SearchBarProps {
@@ -11,7 +11,7 @@ const SearchBar: FC<SearchBarProps> = ({ value = 'Поиск' }) => {
   const [currentValue, setCurrentValue] = useState('');
 
   // Позже будем через пропс или через контекст прокидывать значение сюда чтобы сохранять значение при переключении между экранами
-  function handleChangeInput(e) {
+  function handleChangeInput(e: { target: { value: SetStateAction<string> } }) {
     setCurrentValue(e.target.value);
   }
 
@@ -40,7 +40,6 @@ const SearchBar: FC<SearchBarProps> = ({ value = 'Поиск' }) => {
           pl: 0,
           pt: 1.25,
           pb: 1.25,
-          fontSize: 14,
         },
       }}
     />
