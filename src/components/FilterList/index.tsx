@@ -1,7 +1,16 @@
-import { Grid } from '@mui/material';
+import { Typography, Divider, Stack } from '@mui/material';
 import { InputAuto } from '../../ui/InputAuto';
 
+import { BasicButton } from '../../ui/Button';
+import { useEffect, useState } from 'react';
+
 export default function FilterList() {
+  const [isFiltersUsed, setFiltersUsed] = useState(false);
+
+  useEffect(() => {
+    setFiltersUsed(!isFiltersUsed);
+  }, []);
+
   const data = [
     {
       title: 'Специализация',
@@ -40,12 +49,37 @@ export default function FilterList() {
   ];
 
   return (
-    <Grid sx={{ flexGrow: 1 }} container rowGap={5} justifyContent="center">
-      {data.map((item) => (
-        <Grid key={item.title} item xs={12}>
-          <InputAuto options={item.options} name={item.title} />
-        </Grid>
-      ))}
-    </Grid>
+    <Stack
+      border={1}
+      borderColor="action.disabledBackground"
+      width={280}
+      justifyContent="center"
+      padding={6}
+      gap={5}
+      direction="column"
+    >
+      <Typography
+        variant="body1"
+        gutterBottom
+        fontSize={14}
+        color="text.secondary"
+      >
+        Фильтры
+      </Typography>
+      <Stack gap={5} justifyContent="center">
+        {data.map((item) => (
+          <InputAuto
+            key={item.title}
+            options={item.options}
+            name={item.title}
+          />
+        ))}
+      </Stack>
+      <Divider />
+      <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+        <BasicButton text="Сохранить" isFiltersUsed />
+        <BasicButton text="Сбросить" isFiltersUsed />
+      </Stack>
+    </Stack>
   );
 }

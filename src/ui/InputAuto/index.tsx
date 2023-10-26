@@ -22,12 +22,13 @@ export const InputAuto: FC<{
       {name}
     </Typography>
     <Autocomplete
+      disablePortal
       multiple
       limitTags={2}
       disableCloseOnSelect
       options={options}
       getOptionLabel={(option) => option.name}
-      renderInput={(params) => <TextField {...params} placeholder={name} />}
+      renderInput={(params) => <TextField {...params} />}
     />
   </Box>
 );
