@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import userIconPath from '../../assets/images/user.svg';
-import infoIconPath from '../../assets/images/info.svg';
-import lentaIconPath from '../../assets/images/lenta.svg';
-import exitIconPath from '../../assets/images/exit.svg';
-import suitcaseIconPath from '../../assets/images/suitcase.svg';
+import userIconPath from '../../assets/images/icons/user.svg';
+import infoIconPath from '../../assets/images/icons/info.svg';
+import lentaIconPath from '../../assets/images/icons/lenta.svg';
+import exitIconPath from '../../assets/images/icons/exit.svg';
+import suitcaseIconPath from '../../assets/images/icons/suitcase.svg';
 import styles from './Navigation.module.css';
 
 function Navigation() {

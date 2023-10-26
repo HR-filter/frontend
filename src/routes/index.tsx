@@ -8,7 +8,8 @@ import {
 import Root from './root';
 import VacancyPage from '../pages/VacancyPage';
 import ErrorBoundary from './ErrorBoundary';
-import TestButton from '../ui/test-button';
+import CheckboxLabel from '../ui/checkbox/index';
+import SearchBar from '../ui/search-bar';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,7 @@ const router = createBrowserRouter(
           </Offline>
         </>
       }
-      errorElement={<ErrorBoundary />}
+      // errorElement={<ErrorBoundary />}
     >
       {/* Main Page */} // тут пока не знаю. надо узнать, что обычно
       отображается на главной. возможно уже роут с фильтрами сразу
@@ -41,7 +42,15 @@ const router = createBrowserRouter(
         element={<p>Здесь собранная страница favourite</p>}
       />
       {/*  Роут для проверки своих компонентов в адресной строке ввест /test */}
-      <Route path="test" element={<TestButton />} />
+      <Route
+        path="/test"
+        element={
+          <>
+            <SearchBar value="Поиск" />
+            <CheckboxLabel label="Тестовое поле" checked />
+          </>
+        }
+      />
     </Route>,
   ),
 );
