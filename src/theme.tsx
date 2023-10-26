@@ -37,6 +37,7 @@ const theme = createTheme({
     },
     // Add more font styles as needed
   },
+  spacing: 4,
   components: {
     MuiCheckbox: {
       styleOverrides: {
