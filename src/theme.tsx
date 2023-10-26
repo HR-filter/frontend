@@ -28,7 +28,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'YS Display, YS Text, Roboto, Inter, Arial, sans-serif', // Default font for most text
-    fontSize: 10,
+    fontSize: 14, //определяем на уровне темы
     h1: {
       fontFamily: 'YS Display, sans-serif', // Custom font for h1
     },
@@ -43,7 +43,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: 'YS Text, sans-serif', // Настройка шрифта для чекбокса
-          fontSize: '14px', // Размер шрифта для чекбокса
+          // fontSize: '14px', // Размер шрифта для чекбокса
         },
       },
     },
@@ -52,7 +52,7 @@ const theme = createTheme({
         root: {
           fontFamily: 'YS Text, sans-serif',
           fontWeight: 400,
-          fontSize: 14,
+          // fontSize: 14,
         },
       },
     },
