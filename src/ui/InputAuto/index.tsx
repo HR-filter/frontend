@@ -1,37 +1,33 @@
 import { Autocomplete, TextField, Typography, Box } from '@mui/material';
+import { FC } from 'react';
 
 interface AutocompleteOption {
-  label: string;
-  id: number;
+  name: string;
 }
 
-export default function InputAuto({ name = 'Название поля' }) {
-  const options: AutocompleteOption[] = [
-    { label: 'Junior', id: 1 },
-    { label: 'Medium', id: 2 },
-    { label: 'WellDone', id: 3 },
-  ];
-
-  return (
-    <Box sx={{ maxWidth: 264 }}>
-      <Typography
-        variant="caption"
-        display="block"
-        gutterBottom
-        sx={{
-          fontSize: 16,
-          fontWeight: 'medium',
-        }}
-      >
-        {name}
-      </Typography>
-      <Autocomplete
-        disablePortal
-        options={options}
-        renderInput={(params) => (
-          <TextField {...params} placeholder="Не указано" />
-        )}
-      />
-    </Box>
-  );
-}
+export const InputAuto: FC<{
+  name: string;
+  options: AutocompleteOption[];
+}> = ({ name, options }) => (
+  <Box sx={{ width: 232 }}>
+    <Typography
+      variant="caption"
+      display="block"
+      gutterBottom
+      sx={{
+        fontSize: 16,
+        fontWeight: 'medium',
+      }}
+    >
+      {name}
+    </Typography>
+    <Autocomplete
+      multiple
+      limitTags={2}
+      disableCloseOnSelect
+      options={options}
+      getOptionLabel={(option) => option.name}
+      renderInput={(params) => <TextField {...params} placeholder={name} />}
+    />
+  </Box>
+);

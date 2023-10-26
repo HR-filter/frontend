@@ -36,6 +36,7 @@ const theme = createTheme({
     },
     // Add more font styles as needed
   },
+  spacing: 4,
 });
 
 export default theme;
