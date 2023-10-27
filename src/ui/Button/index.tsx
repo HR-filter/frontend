@@ -5,8 +5,8 @@ import { FC } from 'react';
 export const BasicButton: FC<{
   text: string;
   isFiltersUsed: boolean;
-  deleteIcon?: boolean;
-}> = ({ text, isFiltersUsed }) => {
+  type: any
+}> = ({ text, isFiltersUsed, type }) => {
   return (
     <Button
       sx={{
@@ -14,8 +14,8 @@ export const BasicButton: FC<{
         textTransform: 'none',
       }}
       variant="text"
-      disabled={isFiltersUsed}
-      // startIcon={<DeleteIcon />}
+      type={type}
+      disabled={!isFiltersUsed}
     >
       {text}
     </Button>

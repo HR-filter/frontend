@@ -7,7 +7,7 @@ interface SearchBarProps {
   value: string;
 }
 
-const SearchBar: FC<SearchBarProps> = ({ value = 'Поиск' }) => {
+const SearchBar: FC<SearchBarProps> = () => {
   const [currentValue, setCurrentValue] = useState('');
 
   // Позже будем через пропс или через контекст прокидывать значение сюда чтобы сохранять значение при переключении между экранами
