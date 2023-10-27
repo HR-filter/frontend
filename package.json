@@ -57,7 +57,7 @@
     "vite": "^4.5.0"
   },
   "lint-staged": {
-    "*.{js,jsx,tsx}": "npm run lint",
+    "*.{js,jsx,tsx}": "npm run lint:fix",
     "*.{js,jsx,tsx,css,md,html,json}": "npm run prettier:fix"
   },
   "config": {
