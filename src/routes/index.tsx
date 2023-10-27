@@ -10,7 +10,9 @@ import VacancyPage from '../pages/VacancyPage';
 import ErrorBoundary from './ErrorBoundary';
 import CheckboxLabel from '../ui/checkbox/index';
 import SearchBar from '../ui/search-bar';
+import CardInfo from '../components/CardInfo';
 import FilterList from '../components/FilterList';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +51,7 @@ const router = createBrowserRouter(
           <>
             <SearchBar value="Поиск" />
             <CheckboxLabel label="Тестовое поле" checked />
+            <CardInfo />
             <FilterList />
           </>
         }
