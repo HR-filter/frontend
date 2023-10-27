@@ -5,7 +5,7 @@ import { FC } from 'react';
 export const BasicButton: FC<{
   text: string;
   isFiltersUsed: boolean;
-  type: any
+  type: 'button' | 'submit' | 'reset' | undefined;
 }> = ({ text, isFiltersUsed, type }) => {
   return (
     <Button
