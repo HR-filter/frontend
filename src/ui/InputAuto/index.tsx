@@ -1,34 +1,48 @@
 import { Autocomplete, TextField, Typography, Box } from '@mui/material';
 import { FC } from 'react';
+import { useFormContext, Controller } from 'react-hook-form';
 
 interface AutocompleteOption {
-  name: string;
+  id: number;
+  label: string;
 }
 
 export const InputAuto: FC<{
+  title: string;
   name: string;
   options: AutocompleteOption[];
-}> = ({ name, options }) => (
-  <Box sx={{ width: 232 }}>
-    <Typography
-      variant="caption"
-      display="block"
-      gutterBottom
-      sx={{
-        fontSize: 16,
-        fontWeight: 'medium',
-      }}
-    >
-      {name}
-    </Typography>
-    <Autocomplete
-      disablePortal
-      multiple
-      limitTags={2}
-      disableCloseOnSelect
-      options={options}
-      getOptionLabel={(option) => option.name}
-      renderInput={(params) => <TextField {...params} />}
-    />
-  </Box>
-);
+}> = ({ title, name, options }) => {
+  const { control } = useFormContext();
+
+  return (
+    <Box sx={{ width: 232 }}>
+      <Typography
+        variant="caption"
+        display="block"
+        gutterBottom
+        sx={{
+          fontSize: 14,
+          fontWeight: 'medium',
+        }}
+      >
+        {title}
+      </Typography>
+      <Controller
+        control={control}
+        name={name}
+        render={({ field: { onChange } }) => (
+          <Autocomplete
+            disablePortal
+            multiple
+            limitTags={2}
+            disableCloseOnSelect
+            options={options}
+            onChange={(event, values) => {
+              onChange(values)
+            }}
+            getOptionLabel={(option) => option.label}
+            renderInput={(params) => <TextField {...params} />}
+          />)} />
+    </Box>
+  );
+};
