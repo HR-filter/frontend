@@ -1,6 +1,7 @@
-import { Autocomplete, TextField, Typography, Box } from '@mui/material';
+import { Autocomplete, TextField, Box } from '@mui/material';
 import { FC } from 'react';
 import { useFormContext, Controller } from 'react-hook-form';
+import { Title } from '../Title';
 
 interface AutocompleteOption {
   id: number;
@@ -16,17 +17,7 @@ export const InputAuto: FC<{
 
   return (
     <Box sx={{ width: 232 }}>
-      <Typography
-        variant="caption"
-        display="block"
-        gutterBottom
-        sx={{
-          fontSize: 14,
-          fontWeight: 'medium',
-        }}
-      >
-        {title}
-      </Typography>
+      <Title title={title} />
       <Controller
         control={control}
         name={name}
@@ -37,7 +28,7 @@ export const InputAuto: FC<{
             limitTags={2}
             disableCloseOnSelect
             options={options}
-            onChange={(values) => {
+            onChange={(_event, values) => {
               onChange(values);
             }}
             getOptionLabel={(option) => option.label}
