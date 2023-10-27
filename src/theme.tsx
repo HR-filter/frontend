@@ -43,7 +43,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: 'YS Text, sans-serif', // Настройка шрифта для чекбокса
-          fontSize: '14px', // Размер шрифта для чекбокса
+          // fontSize: '14px', // Размер шрифта для чекбокса
         },
       },
     },
@@ -52,7 +52,7 @@ const theme = createTheme({
         root: {
           fontFamily: 'YS Text, sans-serif',
           fontWeight: 400,
-          fontSize: 14,
+          // fontSize: 14,
         },
       },
     },
