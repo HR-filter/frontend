@@ -1,8 +1,9 @@
-import { Typography, Divider, Stack } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
 import { InputAuto } from '../../ui/InputAuto';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { BasicButton } from '../../ui/Button';
 import { useEffect, useState } from 'react';
+import { Title } from '../../ui/Title/index';
 
 interface IFormProps {
   name: string;
@@ -77,16 +78,9 @@ export default function FilterList() {
           padding={6}
           gap={5}
           direction="column"
+          borderRadius={1}
         >
-          <Typography
-            variant="body1"
-            gutterBottom
-            fontSize={14}
-            color="text.secondary"
-          >
-            Фильтры
-          </Typography>
-
+          <Title title="Фильтры" color="text.secondary" fontSize={14} />
           <Stack gap={5} justifyContent="center">
             {data.map((item) => (
               <InputAuto
@@ -97,10 +91,11 @@ export default function FilterList() {
               />
             ))}
           </Stack>
+          <Stack></Stack>
           <Divider />
           <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
             <BasicButton text="Сохранить" isFiltersUsed type="submit" />
-            <BasicButton text="Сбросить" isFiltersUsed type="button" />
+            <BasicButton text="Сбросить" isFiltersUsed type="reset" />
           </Stack>
         </Stack>
       </form>
