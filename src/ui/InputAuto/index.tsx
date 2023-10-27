@@ -37,12 +37,14 @@ export const InputAuto: FC<{
             limitTags={2}
             disableCloseOnSelect
             options={options}
-            onChange={(event, values) => {
-              onChange(values)
+            onChange={(values) => {
+              onChange(values);
             }}
             getOptionLabel={(option) => option.label}
             renderInput={(params) => <TextField {...params} />}
-          />)} />
+          />
+        )}
+      />
     </Box>
   );
 };

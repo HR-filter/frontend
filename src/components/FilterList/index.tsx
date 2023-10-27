@@ -8,9 +8,10 @@ interface IFormProps {
   name: string;
   options: [
     {
-      id: number,
-      label: string,
-    }]
+      id: number;
+      label: string;
+    },
+  ];
 }
 
 const data = [
