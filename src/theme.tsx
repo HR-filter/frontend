@@ -7,6 +7,7 @@ const theme = createTheme({
     primary: {
       main: '#5a9bff', // Основной синий цвет
       dark: '#1d6bf3', // Темный синий для активных элементов
+      light: '#F1F6FF', // Светлый синий
     },
     secondary: {
       main: '#87cc9e', // Зеленый вторичный цвет
