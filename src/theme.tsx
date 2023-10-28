@@ -29,7 +29,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'YS Text, Roboto, Inter, Arial, sans-serif', // Default font for most text
-    fontSize: 16,
+    fontSize: 14,
     h1: {
       fontFamily: 'YS Display, sans-serif', // Custom font for h1
     },
