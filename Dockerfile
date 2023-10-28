@@ -13,4 +13,4 @@ ENV NODE_ENV production
 RUN npm run build
 # ==== RUN =======
 # Start the app
-CMD cp -r build result_build
+CMD cp -r dist result_build
