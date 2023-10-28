@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Grid from '@mui/material/Grid';
 import {
   List,
@@ -13,9 +14,44 @@ import behancePath from '../../assets/images/icons/behance-min.svg';
 import notionPath from '../../assets/images/icons/notion-min.svg';
 import figmaPath from '../../assets/images/icons/figma-min.svg';
 import dotPath from '../../assets/images/icons/dot.svg';
-import demoUserData from '../../assets/data/demoUser';
 
-const typeNames: any = {
+type userDataType = {
+  type: string;
+  content:
+    | Array<{
+        dateStart: string;
+        dateEnd: string;
+        duration: string;
+        name: string;
+        job: string;
+        duties: Array<string>;
+      }>
+    | Array<string>
+    | string
+    | Array<{
+        type: string;
+        link: string;
+      }>
+    | Array<{
+        name: string;
+        description: string;
+      }>
+    | Array<{
+        name: string;
+        grade: string;
+      }>
+    | Array<{
+        name: string;
+        specialization: string;
+        grade: string;
+      }>;
+};
+
+type userDataTypes = Array<userDataType>;
+
+const typeNames: {
+  [key: string]: string;
+} = {
   experience: 'Опыт',
   courses: 'Курсы',
   portfolio: 'Портфолио',
@@ -26,7 +62,9 @@ const typeNames: any = {
   about: 'О себе',
 };
 
-const serviceIcons: any = {
+const serviceIcons: {
+  [key: string]: string;
+} = {
   github: githubPath,
   notion: notionPath,
   behance: behancePath,
@@ -80,6 +118,7 @@ function renderSwitch(data: any) {
                   boxShadow: 1,
                   borderRadius: 2,
                   backgroundColor: 'primary.light',
+                  fontSize: '14px',
                 }}
                 clickable
               />
@@ -116,6 +155,7 @@ function renderSwitch(data: any) {
                   backgroundColor: 'primary.light',
                   borderRadius: 1,
                   height: 24,
+                  fontSize: '13px',
                 }}
               />
             );
@@ -155,28 +195,27 @@ function renderSwitch(data: any) {
   }
 }
 
-const CardInfo = () => {
+const CardInfo: FC<{ userData: userDataTypes }> = ({ userData }) => {
   return (
     <Grid container spacing={11}>
-      {demoUserData.map((row) => (
-        <>
-          <Grid item xs={3}>
-            <Typography
-              color="text.secondary"
-              sx={{
-                fontSize: '16px',
-                fontWeight: 500,
-                lineHeight: '20px',
-              }}
-            >
-              {typeNames[row.type]}
-            </Typography>
-          </Grid>
-          <Grid item xs={9}>
-            {renderSwitch(row)}
-          </Grid>
-        </>
-      ))}
+      {userData &&
+        userData.map((row: userDataType) => (
+          <>
+            <Grid item xs={3}>
+              <Typography
+                color="text.secondary"
+                sx={{
+                  fontWeight: 500,
+                }}
+              >
+                {typeNames[row.type]}
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              {renderSwitch(row)}
+            </Grid>
+          </>
+        ))}
     </Grid>
   );
 };
