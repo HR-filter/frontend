@@ -4,6 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { BasicButton } from '../../ui/Button';
 import { useEffect, useState } from 'react';
 import { Title } from '../../ui/Title/index';
+import CheckboxLabel from '../../ui/checkbox/index';
 
 interface IFormProps {
   name: string;
@@ -13,9 +14,14 @@ interface IFormProps {
       label: string;
     },
   ];
+  checkbox: [
+    {
+      label: boolean;
+    },
+  ];
 }
 
-const data = [
+const filterData = [
   {
     title: 'Специализация',
     name: 'specialization',
@@ -54,6 +60,11 @@ const data = [
   },
 ];
 
+const checkboxData = [
+  { title: 'Высшее образование', label: 'has_higher_education' },
+];
+// "Участие в хакатонах", "Наличие пет-проектов", "Навыки подтверждены", "С видео презентацией"
+
 export default function FilterList() {
   const [isFiltersUsed, setFiltersUsed] = useState(true);
 
@@ -61,7 +72,7 @@ export default function FilterList() {
     setFiltersUsed(!isFiltersUsed);
   }, []);
 
-  const methods = useForm<IFormProps>();
+  const methods = useForm<IFormProps>({ defaultValues: {} });
 
   const submitFilters: SubmitHandler<IFormProps> = async (info: IFormProps) => {
     console.log('data submitted', info);
@@ -82,7 +93,7 @@ export default function FilterList() {
         >
           <Title title="Фильтры" color="text.secondary" fontSize={14} />
           <Stack gap={5} justifyContent="center">
-            {data.map((item) => (
+            {filterData.map((item) => (
               <InputAuto
                 key={item.title}
                 name={item.name}
@@ -91,11 +102,20 @@ export default function FilterList() {
               />
             ))}
           </Stack>
-          <Stack></Stack>
+          <Title title="Дополнительно" />
+          <Stack gap={5} justifyContent="center">
+            {checkboxData.map((item, index) => (
+              <CheckboxLabel
+                key={index}
+                label={item.label}
+                title={item.title}
+              />
+            ))}
+          </Stack>
           <Divider />
           <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
             <BasicButton text="Сохранить" isFiltersUsed type="submit" />
-            <BasicButton text="Сбросить" isFiltersUsed type="reset" />
+            <BasicButton text="Сбросить" isFiltersUsed />
           </Stack>
         </Stack>
       </form>

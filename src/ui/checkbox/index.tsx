@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useFormContext } from 'react-hook-form';
 
 interface CheckboxLabelProps {
   label: string;
-  checked?: boolean;
+  title: string;
 }
 
 function Icon() {
@@ -43,27 +44,34 @@ function CheckIcon() {
   );
 }
 
-const CheckboxLabel: React.FC<CheckboxLabelProps> = ({
-  label,
-  checked = false,
-}) => {
-  const [isChecked, setIsChecked] = useState(checked);
+const CheckboxLabel: React.FC<CheckboxLabelProps> = ({ label, title }) => {
+  // const [isChecked, setIsChecked] = useState(checked);
 
-  useEffect(() => {
-    setIsChecked(checked);
-  }, [checked]);
+  // useEffect(() => {
+  //   setIsChecked(checked);
+  // }, [checked]);
 
-  const handleChange = () => {
-    setIsChecked(!isChecked);
-  };
+  // const handleChange = () => {
+  //   setIsChecked(!isChecked);
+  // };
+
+  const { register } = useFormContext() ?? {};
+
+  if (!register) return null;
 
   return (
     <FormControlLabel
-      label={label}
+      {...register(label, {})}
+      label={title}
+      sx={{
+        height: '25px',
+        margin: 0,
+        ' .MuiTypography-root': {
+          fontSize: 14,
+        },
+      }}
       control={
         <Checkbox
-          checked={isChecked}
-          onChange={handleChange}
           color="primary"
           size="medium"
           checkedIcon={<CheckIcon />}
@@ -75,10 +83,6 @@ const CheckboxLabel: React.FC<CheckboxLabelProps> = ({
           }}
         />
       }
-      sx={{
-        height: '25px',
-        margin: 0,
-      }}
     />
   );
 };

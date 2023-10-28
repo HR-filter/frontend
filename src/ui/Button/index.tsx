@@ -4,9 +4,10 @@ import { FC } from 'react';
 
 export const BasicButton: FC<{
   text: string;
-  isFiltersUsed: boolean;
-  type: 'button' | 'submit' | 'reset' | undefined;
-}> = ({ text, isFiltersUsed, type }) => {
+  isFiltersUsed?: boolean;
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  handleClick?: () => void;
+}> = ({ text, isFiltersUsed, type, handleClick }) => {
   return (
     <Button
       sx={{
@@ -16,6 +17,7 @@ export const BasicButton: FC<{
       variant="text"
       type={type}
       disabled={!isFiltersUsed}
+      onClick={handleClick}
     >
       {text}
     </Button>
