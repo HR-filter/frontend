@@ -11,6 +11,8 @@ import ErrorBoundary from './ErrorBoundary';
 import CheckboxLabel from '../ui/checkbox/index';
 import SearchBar from '../ui/search-bar';
 import FilterList from '../components/FilterList';
+// import Registration from '../pages/Registration/Registration';
+// import Login from '../pages/Login/Login';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,7 +50,7 @@ const router = createBrowserRouter(
         element={
           <>
             <SearchBar value="Поиск" />
-            <CheckboxLabel label="Тестовое поле" checked />
+            <CheckboxLabel title="Тестовое поле" label="111" />
             <FilterList />
           </>
         }
