@@ -28,11 +28,25 @@ export const InputAuto: FC<{
             limitTags={2}
             disableCloseOnSelect
             options={options}
+            sx={{
+              '& input': {
+                fontSize: 14,
+              },
+            }}
+            componentsProps={{
+              paper: {
+                sx: {
+                  fontSize: 14,
+                },
+              },
+            }}
             onChange={(_event, values) => {
               onChange(values);
             }}
             getOptionLabel={(option) => option.label}
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => (
+              <TextField {...params} placeholder={title} />
+            )}
           />
         )}
       />
