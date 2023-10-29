@@ -1,41 +1,33 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
-import Switch from '@mui/material/Switch';
-
 import Slide from '@mui/material/Slide';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FilterList from '../FilterList';
+import CardInfo from '../CardInfo';
+import demoUserData from '../../assets/data/demoUser';
+import { Dispatch, FC, SetStateAction } from 'react';
 
-export default function SimpleSlide() {
-  const [checked, setChecked] = React.useState(false);
-
+export const SimpleSlide: FC<{
+  isSlideOpen?: boolean;
+  setIsSlideOpen?: Dispatch<SetStateAction<boolean>>;
+}> = ({ isSlideOpen, setIsSlideOpen }) => {
+  console.log(setIsSlideOpen);
+  // onClose={setIsSlideOpen}
   // Сюда заносим что надо отрендерить справа в окне
   const body = (
     <Box>
-      <FilterList />
+      <CardInfo userData={demoUserData} />
     </Box>
   );
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
 
   return (
     <Box
       sx={{
-        height: 180,
-        width: 130,
+        width: 711,
         position: 'relative',
         zIndex: 1,
       }}
     >
-      <FormControlLabel
-        control={<Switch checked={checked} onChange={handleChange} />}
-        label="Show"
-      />
-      <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
+      <Slide direction="left" in={isSlideOpen} mountOnEnter unmountOnExit>
         {body}
       </Slide>
     </Box>
   );
-}
+};

@@ -17,7 +17,8 @@ import { ProtectedRouteProps } from '../HOC/ProtectedRoute';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import demoUserData from '../assets/data/demoUser';
-import SimpleSlide from '../components/SimpleSlide';
+import { SimpleSlide } from '../components/SimpleSlide';
+import Main from '../pages/Main';
 
 const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
   isAuthenticated: true,
@@ -47,15 +48,12 @@ const router = createBrowserRouter(
           />
         }
       >
-        {/* <Route
-          path="/vacancy"
+        <Route
+          path="/"
           element={
-            <ProtectedRoute
-              {...defaultProtectedRouteProps}
-              outlet={<VacancyPage />}
-            />
+            <ProtectedRoute {...defaultProtectedRouteProps} outlet={<Main />} />
           }
-        /> */}
+        />
         <Route
           path="/favourite"
           element={
