@@ -11,15 +11,15 @@ function Navigation() {
     <nav className={styles.navigation}>
       <ul className={styles.navigationList}>
         <li className={styles.navigationListItem}>
-          <Link className={styles.navigationLink} to="/candidate">
+          <Link className={styles.navigationLink} to="/">
             <img src={userIconPath} alt="Кандидаты"></img>
             <span>Кандидаты</span>
           </Link>
         </li>
         <li className={styles.navigationListItem}>
-          <Link className={styles.navigationLink} to="/vacancy">
+          <Link className={styles.navigationLink} to="/test">
             <img src={suitcaseIconPath} alt="Вакансии"></img>
-            <span>Вакансии</span>
+            <span>Тест</span>
           </Link>
         </li>
         <li className={styles.navigationListItem}>
