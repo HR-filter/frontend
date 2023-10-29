@@ -12,6 +12,9 @@ import CheckboxLabel from '../ui/checkbox/index';
 import SearchBar from '../ui/search-bar';
 import CardInfo from '../components/CardInfo';
 import FilterList from '../components/FilterList';
+import CardSmall from '../components/CardSmall';
+// import Registration from '../pages/Registration/Registration';
+// import Login from '../pages/Login/Login';
 import ProtectedRoute from '../HOC/ProtectedRoute';
 import { ProtectedRouteProps } from '../HOC/ProtectedRoute';
 import Registration from '../pages/Registration/Registration';
@@ -33,6 +36,7 @@ const router = createBrowserRouter(
       <Route
         path="/"
         element={
+
           <ProtectedRoute
             {...defaultProtectedRouteProps}
             outlet={
@@ -46,6 +50,7 @@ const router = createBrowserRouter(
               </>
             }
           />
+
         }
       >
         <Route
@@ -75,6 +80,7 @@ const router = createBrowserRouter(
                   <CardInfo userData={demoUserData} />
                   <FilterList />
                   <SimpleSlide />
+                  <CardSmall />
                 </>
               }
             />

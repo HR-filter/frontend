@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import './assets/fonts/fonts.module.css';
 
+
 // Create a theme instance.
 const theme = createTheme({
   palette: {
