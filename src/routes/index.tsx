@@ -17,6 +17,7 @@ import { ProtectedRouteProps } from '../HOC/ProtectedRoute';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import demoUserData from '../assets/data/demoUser';
+import SimpleSlide from '../components/SimpleSlide';
 
 const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
   isAuthenticated: true,
@@ -26,8 +27,8 @@ const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="signin" element={<Login />} />
-      <Route path="signup" element={<Registration />} />
+      <Route path="/signin" element={<Login />} />
+      <Route path="/signup" element={<Registration />} />
       <Route
         path="/"
         element={
@@ -75,6 +76,7 @@ const router = createBrowserRouter(
                   <CheckboxLabel title="Тестовое поле" label="111" />
                   <CardInfo userData={demoUserData} />
                   <FilterList />
+                  <SimpleSlide />
                 </>
               }
             />
@@ -85,4 +87,3 @@ const router = createBrowserRouter(
   ),
 );
 export default router;
-
