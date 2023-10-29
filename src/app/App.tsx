@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-import store from './store';
+import store from './store/index';
 import router from '../routes';
 import theme from '../theme';
 
