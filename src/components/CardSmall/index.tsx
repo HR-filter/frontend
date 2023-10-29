@@ -83,6 +83,7 @@ const CardSmall: FC<{
         subheaderAcademicStatus={`${data.academic_status.name}`}
       />
       <Divider />
+      {/* Info component to go here */}
       <Divider />
       <CardActionsResume>
         <Box
