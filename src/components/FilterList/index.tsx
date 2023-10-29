@@ -70,6 +70,7 @@ export default function FilterList() {
 
   useEffect(() => {
     setFiltersUsed(!isFiltersUsed);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const methods = useForm<IFormProps>({ defaultValues: {} });

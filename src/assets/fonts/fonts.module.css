@@ -1,17 +1,5 @@
-/* TODO: добавить шрифты. 7 типов */
-/*  Хорошей практикой считается подключать разные форматы. Лучше конвертировать и подключить все три: otf, woff/woff2  */
-/* 
-YS Text Regular
-YS Text Medium
-YS Display Medium
-Roboto Regular
-Inter Semi Bold
-YS Display Regular
-Montserrat Medium
- */
 @font-face {
-  src: 
-  /* Искать сначала в локальном хранилище, если нет, то загружать через url */
+  src:
     local('YS_Display-Regular'),
     url('./YS_Display-Regular.ttf') format('opentype'),
     url('./YS_Display-Regular.woff') format('woff'),
@@ -20,6 +8,7 @@ Montserrat Medium
   font-weight: 400;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('YS_Display-Medium'),
@@ -30,6 +19,7 @@ Montserrat Medium
   font-weight: 500;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('YS_Text-Regular'),
@@ -40,6 +30,7 @@ Montserrat Medium
   font-weight: 400;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('YS_Text-Medium'),
@@ -50,6 +41,7 @@ Montserrat Medium
   font-weight: 500;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('Roboto-Regular'),
@@ -60,6 +52,7 @@ Montserrat Medium
   font-weight: 400;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('Roboto-Regular'),
@@ -70,6 +63,7 @@ Montserrat Medium
   font-weight: 500;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('Inter-SemiBold'),
@@ -80,6 +74,7 @@ Montserrat Medium
   font-weight: 400;
   font-display: swap;
 }
+
 @font-face {
   src:
     local('Inter-SemiBold'),
