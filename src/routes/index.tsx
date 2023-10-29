@@ -12,9 +12,10 @@ import CheckboxLabel from '../ui/checkbox/index';
 import SearchBar from '../ui/search-bar';
 import CardInfo from '../components/CardInfo';
 import FilterList from '../components/FilterList';
+import demoUserData from '../assets/data/demoUser';
+import CardSmall from '../components/CardSmall';
 // import Registration from '../pages/Registration/Registration';
 // import Login from '../pages/Login/Login';
-
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
             <CheckboxLabel title="Тестовое поле" label="111" />
             <CardInfo />
             <FilterList />
+            <CardSmall />
           </>
         }
       />
