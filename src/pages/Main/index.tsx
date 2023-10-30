@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 import SearchBar from '../../ui/search-bar';
 import FilterList from '../../components/FilterList';
 import CardSmall from '../../components/CardSmall';
-import demoResume from '../../assets/data/demoResume';
+import { resumes } from '../../assets/data/demoResume';
 import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
 
 function Main() {
@@ -19,22 +19,20 @@ function Main() {
     setPopupId(null);
   };
 
-  const cards = Array(8)
-    .fill(null)
-    .map((_, index) => (
-      <CardSmall
-        key={index}
-        data={demoResume}
-        isViewed={true}
-        isFavourite={true}
-        pdfLink=""
-        onClickLike={() => console.log('test')}
-        onClickDetails={() => openPopup(index)}
-        onClickTelegram={() => console.log('test')}
-        onClickEmail={() => console.log('test')}
-        onClickDownload={() => console.log('test')}
-      />
-    ));
+  const cards = resumes.map((resume) => (
+    <CardSmall
+      key={resume.id}
+      data={resume}
+      isViewed={true}
+      isFavourite={true}
+      pdfLink=""
+      onClickLike={() => console.log('test')}
+      onClickDetails={() => openPopup(resume.id)} // Используйте resume.id вместо индекса
+      onClickTelegram={() => console.log('test')}
+      onClickEmail={() => console.log('test')}
+      onClickDownload={() => console.log('test')}
+    />
+  ));
 
   return (
     <>

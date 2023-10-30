@@ -3,7 +3,7 @@ import Slide from '@mui/material/Slide';
 import classnames from 'classnames';
 import classes from './style.module.scss';
 import CardFull from '../CardFull';
-import demoResume from '../../assets/data/demoResume';
+import { demoResume, resumes } from '../../assets/data/demoResume';
 
 interface SimpleSlideProps {
   // setIsSlideOpen?: (isSlideOpen: boolean) => void;
@@ -17,6 +17,8 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
   isOpen = false,
   onClose = () => {},
 }) => {
+  const defaultResumeData = demoResume;
+
   const getPopupClasses = classnames(classes.popup, {
     [classes.popup_opened]: isOpen,
   });
@@ -24,6 +26,9 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
   useEffect(() => {
     console.log(id);
   }, []);
+
+  // Найти резюме по id
+  const foundResume = resumes.find((resume) => resume.id === Number(id));
 
   useEffect(() => {
     function handleEscClose(evt: Event) {
@@ -56,7 +61,7 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
         <div className={classes.popup__form}>
           <CardFull
             // TODO: прокинуть пропсом id и по id найти через апи данные для этой карты
-            data={demoResume}
+            data={foundResume || defaultResumeData}
             isViewed={true}
             isFavourite={true}
             pdfLink="http://ya.ru"

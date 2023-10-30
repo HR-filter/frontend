@@ -9,7 +9,7 @@ import ResumeDataType, {
   Project,
   WorkExperience,
 } from '../../types/ResumeDataType';
-import demoResume from '../../assets/data/demoResume';
+import { demoResume } from '../../assets/data/demoResume';
 import CardActionsResume from '../../ui/CardActionsResume';
 import FavouriteToggleResume from '../../ui/FavouriteToggleResume';
 import CardHeaderResume from '../../ui/CardHeaderResume';
