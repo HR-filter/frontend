@@ -60,7 +60,7 @@ const CardFull: FC<{
         gap: '12px',
         overflowY: 'auto',
         // overflow: 'hidden',
-        maxHeight: '90vh',
+        maxHeight: '98vh',
       }}
     >
       <CardActionsResume>
