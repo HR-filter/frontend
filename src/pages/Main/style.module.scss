@@ -1,13 +1,20 @@
 .main {
-    padding: 40px 40px 0 40px;
+  padding: 40px 40px 0 40px;
 
-    &__header {
-        padding: 0;
-        margin: 0;
-        font-family: YS Display;
-        font-size: 34px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 40px;
-    }
+  &__header {
+    padding: 0;
+    margin: 0;
+    font-family: YS Display;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  &__content{
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
 }
