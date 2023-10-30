@@ -1,6 +1,7 @@
 import { ToggleButton } from '@mui/material';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { FC } from 'react';
+import { Favorite } from '@mui/icons-material';
 
 const FavouriteToggleResume: FC<{
   isEnabled: boolean;
@@ -14,9 +15,20 @@ const FavouriteToggleResume: FC<{
       disabled={!isEnabled}
       onChange={onChange}
       selected={isActive}
-      sx={{ width: '36px', height: '36px', borderRadius: '6px' }}
+      sx={{
+        width: '36px',
+        height: '36px',
+        borderRadius: '6px',
+        border: 0,
+        '&.Mui-selected': { backgroundColor: 'white' },
+        boxShadow: '0px 4px 6px 0px rgba(176, 190, 197, 0.30)',
+      }}
     >
-      <FavoriteBorderOutlinedIcon color="primary" />
+      {isActive ? (
+        <Favorite color="primary" />
+      ) : (
+        <FavoriteBorderOutlinedIcon color="primary" />
+      )}
     </ToggleButton>
   );
 };
