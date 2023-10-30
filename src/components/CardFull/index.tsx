@@ -1,7 +1,14 @@
 import { FC } from 'react';
-import { Box, Card, Grid, Typography, Divider, Button } from '@mui/material';
+import { Box, Card, Grid, Divider, Button, Typography } from '@mui/material';
 import ChipResumeStatus from '../../ui/ChipResumeStatus';
-import ResumeDataType from '../../types/ResumeDataType';
+import ResumeDataType, {
+  Course,
+  Education,
+  Language,
+  PortfolioItem,
+  Project,
+  WorkExperience,
+} from '../../types/ResumeDataType';
 import demoResume from '../../assets/data/demoResume';
 import CardActionsResume from '../../ui/CardActionsResume';
 import ViewedIcon from '../../ui/ViewedIcon';
@@ -13,15 +20,18 @@ import TelegramIcon from '../../ui/TelegramIcon';
 import DownloadIcon from '../../ui/DownloadIcon';
 import IconButtonResume from '../../ui/IconButtonResume';
 import BoxExperienceResume from '../../ui/BoxExperienceResume';
+import BoxText from '../../ui/BoxText';
 import ChipStackResume from '../../ui/ChipStackResume';
+import ChipPortfolio from '../../ui/ChipPortfolio';
+import BoxProjectResume from '../../ui/BoxProjectResume';
 import ChipSkill from '../../ui/ChipSkill';
-import { WorkExperience } from '../../types/ResumeDataType';
+import BoxEducationResume from '../../ui/BoxEducationResume';
 
 const achievementGenerator: () => number = () => {
   return Math.floor(Math.random() * 12);
 };
 
-const CardSmall: FC<{
+const CardFull: FC<{
   data: ResumeDataType;
   isViewed: boolean;
   isFavourite: boolean;
@@ -72,18 +82,19 @@ const CardSmall: FC<{
         </Box>
       </CardActionsResume>
       <CardHeaderResume
-        variant="small"
+        variant="full"
         avatar={
           <AvatarResume
             name={`${data.user.first_name} ${data.user.last_name}`}
             imagePath={data.photo}
-            withBadge={true}
-            size={88}
+            withBadge={false}
+            size={150}
             badgeCount={achievementGenerator()}
           />
         }
         title={`${data.user.first_name} ${data.user.last_name}`}
         subheaderSpecialization={`${data.specialization.name} • ${data.grade.name}`}
+        subheaderAdditionalInfo={`${data.age} лет • ${data.location.name}`}
         subheaderAcademicStatus={`${data.academic_status.name}`}
       />
       <Divider />
@@ -92,7 +103,7 @@ const CardSmall: FC<{
           <>
             <Grid item xs={3}>
               <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
-                Инфо
+                Опыт
               </Typography>
             </Grid>
             <Grid item xs={9}>
@@ -102,7 +113,7 @@ const CardSmall: FC<{
                     <BoxExperienceResume
                       workExperience={experience}
                       location={data.location.name}
-                      variant="short"
+                      variant="full"
                     />
                   );
                 })}
@@ -110,26 +121,123 @@ const CardSmall: FC<{
             </Grid>
           </>
         )}
-        {data.courses[0].skills[0] && (
+
+        {data.courses[0] && (
           <>
             <Grid item xs={3}>
               <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
-                Ключевые навыки
+                Курсы
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Box>
+                {data.courses.map((course: Course) => {
+                  return <BoxText text={`${course.specialization.name}`} />;
+                })}
+              </Box>
+            </Grid>
+          </>
+        )}
+
+        {data.portfolio[0] && (
+          <>
+            <Grid item xs={3}>
+              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
+                Портфолио
               </Typography>
             </Grid>
             <Grid item xs={9}>
               <ChipStackResume>
-                {data.courses[0].skills
-                  .slice(0, 5)
-                  .map((skill: { id: number; name: string }) => {
-                    return <ChipSkill label={skill.name} />;
-                  })}
+                {data.portfolio.map((item: PortfolioItem) => {
+                  return <ChipPortfolio link={item.url} />;
+                })}
               </ChipStackResume>
             </Grid>
           </>
         )}
+
+        {data.projects[0] && (
+          <>
+            <Grid item xs={3}>
+              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
+                Проекты
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Box>
+                {data.projects.map((project: Project) => {
+                  return <BoxProjectResume project={project} />;
+                })}
+              </Box>
+            </Grid>
+          </>
+        )}
+
+        {data.courses[0].skills[0] && (
+          <>
+            <Grid item xs={3}>
+              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
+                Навыки
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <ChipStackResume>
+                {data.courses[0].skills.map(
+                  (skill: { id: number; name: string }) => {
+                    return <ChipSkill label={skill.name} />;
+                  },
+                )}
+              </ChipStackResume>
+            </Grid>
+          </>
+        )}
+
+        {data.languages[0] && (
+          <>
+            <Grid item xs={3}>
+              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
+                Языки
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Box>
+                {data.languages.map((language: Language) => {
+                  return <BoxText text={language.name} />;
+                })}
+              </Box>
+            </Grid>
+          </>
+        )}
+        {data.educations[0] && (
+          <>
+            <Grid item xs={3}>
+              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
+                Образование
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Box>
+                {data.educations.map((education: Education) => {
+                  return <BoxEducationResume education={education} />;
+                })}
+              </Box>
+            </Grid>
+          </>
+        )}
+        {data.description && (
+          <>
+            <Grid item xs={3}>
+              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
+                О себе
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <BoxText text={data.description} />
+            </Grid>
+          </>
+        )}
       </Grid>
-      <Divider />
+
       <CardActionsResume>
         <Box
           sx={{
@@ -149,29 +257,28 @@ const CardSmall: FC<{
               <TelegramIcon />
             </IconButtonResume>
           )}
-          {pdfLink && (
-            <IconButtonResume onClick={onClickDownload}>
-              <DownloadIcon />
-            </IconButtonResume>
-          )}
         </Box>
 
-        <Button
-          sx={{
-            textTransform: 'none',
-            paddingX: '20px',
-            paddingY: '10px',
-            fontSize: '14px',
-            fontWeight: 500,
-            lineHeight: '20px',
-          }}
-          variant="text"
-        >
-          Подробнее
-        </Button>
+        {pdfLink && (
+          <Button
+            onClick={onClickDownload}
+            color="primary"
+            sx={{
+              textTransform: 'none',
+              paddingX: '20px',
+              paddingY: '10px',
+              fontSize: '14px',
+              fontWeight: 500,
+              lineHeight: '20px',
+            }}
+            variant="contained"
+          >
+            Скачать резюме
+          </Button>
+        )}
       </CardActionsResume>
     </Card>
   );
 };
 
-export default CardSmall;
+export default CardFull;

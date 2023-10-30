@@ -10,7 +10,6 @@ import Root from './root';
 import ErrorBoundary from './ErrorBoundary';
 import CheckboxLabel from '../ui/checkbox/index';
 import SearchBar from '../ui/search-bar';
-import CardInfo from '../components/CardInfo';
 import FilterList from '../components/FilterList';
 import CardSmall from '../components/CardSmall';
 // import Registration from '../pages/Registration/Registration';
@@ -19,9 +18,10 @@ import ProtectedRoute from '../HOC/ProtectedRoute';
 import { ProtectedRouteProps } from '../HOC/ProtectedRoute';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
-import demoUserData from '../assets/data/demoUser';
 import { SimpleSlide } from '../components/SimpleSlide';
 import Main from '../pages/Main';
+import CardFull from '../components/CardFull';
+import demoResume from '../assets/data/demoResume';
 
 const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
   isAuthenticated: true,
@@ -36,7 +36,6 @@ const router = createBrowserRouter(
       <Route
         path="/"
         element={
-
           <ProtectedRoute
             {...defaultProtectedRouteProps}
             outlet={
@@ -50,7 +49,6 @@ const router = createBrowserRouter(
               </>
             }
           />
-
         }
       >
         <Route
@@ -77,10 +75,30 @@ const router = createBrowserRouter(
                 <>
                   <SearchBar value="Поиск" />
                   <CheckboxLabel title="Тестовое поле" label="111" />
-                  <CardInfo userData={demoUserData} />
                   <FilterList />
                   <SimpleSlide />
-                  <CardSmall />
+                  <CardSmall
+                    data={demoResume}
+                    isViewed={true}
+                    isFavourite={true}
+                    pdfLink=""
+                    onClickLike={() => console.log('test')}
+                    onClickDetails={() => console.log('test')}
+                    onClickTelegram={() => console.log('test')}
+                    onClickEmail={() => console.log('test')}
+                    onClickDownload={() => console.log('test')}
+                  />
+                  <CardFull
+                    data={demoResume}
+                    isViewed={true}
+                    isFavourite={true}
+                    pdfLink="http://ya.ru"
+                    onClickLike={() => console.log('test')}
+                    onClickDetails={() => console.log('test')}
+                    onClickTelegram={() => console.log('test')}
+                    onClickEmail={() => console.log('test')}
+                    onClickDownload={() => console.log('test')}
+                  />
                 </>
               }
             />
