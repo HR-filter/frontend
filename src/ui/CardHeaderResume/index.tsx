@@ -26,7 +26,7 @@ const CardHeaderResume: FC<{
             <Typography>{subheaderSpecialization}</Typography>
           )}
           {variant === 'full' && subheaderAdditionalInfo && (
-            <Typography sx={{ fontSize: '14px', color: '#87CC9E' }}>
+            <Typography sx={{ fontSize: '14px' }}>
               {subheaderAdditionalInfo}
             </Typography>
           )}

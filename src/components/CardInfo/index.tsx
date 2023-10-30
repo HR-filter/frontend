@@ -11,11 +11,6 @@ import {
   Chip,
   Avatar,
 } from '@mui/material';
-import githubPath from '../../assets/images/icons/github-min.svg';
-import behancePath from '../../assets/images/icons/behance-min.svg';
-import notionPath from '../../assets/images/icons/notion-min.svg';
-import figmaPath from '../../assets/images/icons/figma-min.svg';
-import dotPath from '../../assets/images/icons/dot.svg';
 
 type userDataType = {
   type: string;
@@ -62,15 +57,6 @@ const typeNames: {
   languages: 'Языки',
   education: 'Образование',
   about: 'О себе',
-};
-
-const serviceIcons: {
-  [key: string]: string;
-} = {
-  github: githubPath,
-  notion: notionPath,
-  behance: behancePath,
-  figma: figmaPath,
 };
 
 function renderSwitch(data: any) {
@@ -146,7 +132,7 @@ function renderSwitch(data: any) {
     case 'skills':
       return (
         <Stack direction="row" spacing={2} useFlexGap flexWrap="wrap">
-          {data.content.map((content: any) => {
+          {data.content.map((content: string) => {
             return (
               <Chip
                 icon={<Avatar sx={{ height: 6, width: 6 }} src={dotPath} />}
