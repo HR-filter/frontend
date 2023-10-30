@@ -10,7 +10,7 @@ import PopupWithForm from '../../components/PopupWithForm';
 
 function Main() {
   const [isSlideOpen, setIsSlideOpen] = useState(true);
-  const [popupId, setPopupId] = useState(null);
+  const [popupId, setPopupId] = useState<number | null>(null);
 
   const openPopup = (id: number | null) => {
     setPopupId(id);
