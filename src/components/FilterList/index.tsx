@@ -4,6 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { BasicButton } from '../../ui/Button';
 import { useEffect, useState } from 'react';
 import { Title } from '../../ui/Title/index';
+import { filterSearch } from '../../utils/api';
 import CheckboxLabel from '../../ui/checkbox/index';
 
 interface IFormProps {
@@ -76,6 +77,7 @@ export default function FilterList() {
   const methods = useForm<IFormProps>({ defaultValues: {} });
 
   const submitFilters: SubmitHandler<IFormProps> = async (info: IFormProps) => {
+    filterSearch(info);
     console.log('data submitted', info);
   };
 

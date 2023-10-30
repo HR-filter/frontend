@@ -1,7 +1,8 @@
-export function checkResponse(res) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export function checkResponse(res: any) {
   return res.ok
     ? res.json()
-    : res.json().then((errorResponse) => {
+    : res.json().then((errorResponse: any) => {
         // ошибка с сообщением
         if (errorResponse) {
           return Promise.reject(errorResponse);
@@ -13,7 +14,7 @@ export function checkResponse(res) {
       });
 }
 
-function request(url, options) {
+function request(url: string, options: any) {
   return fetch(`https://test.ru/api/${url}`, options).then(checkResponse);
 }
 
@@ -32,16 +33,26 @@ export function setHeaders() {
   };
 }
 
-export function searchLocations(params = {}) {
+export function filterSearch(params: any) {
   const query = new URLSearchParams();
 
   Object.keys(params).forEach((key) => {
-    if (params[key] !== undefined && params[key] !== null) {
-      query.append(key, params[key]);
+    if (
+      params[key] !== undefined &&
+      params[key] !== null &&
+      params[key] !== false
+    ) {
+      if (Array.isArray(params[key])) {
+        params[key].forEach((value: any) => {
+          query.append(key, value.id);
+        });
+      } else {
+        query.append(key, params[key]);
+      }
     }
   });
 
-  return request(`/locations/?${query.toString()}`, {
+  return request(`/filters/?${query.toString()}`, {
     method: 'GET',
     headers: setHeaders(),
   });
