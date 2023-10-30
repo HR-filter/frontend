@@ -60,7 +60,7 @@ const CardFull: FC<{
         gap: '12px',
         overflowY: 'auto',
         // overflow: 'hidden',
-        maxHeight: '90vh',
+        maxHeight: '100vh',
       }}
     >
       <CardActionsResume>
@@ -274,6 +274,7 @@ const CardFull: FC<{
               fontSize: '14px',
               fontWeight: 500,
               lineHeight: '20px',
+              color: '#ffffff',
             }}
             variant="contained"
           >

@@ -6,6 +6,7 @@ import SearchBar from '../../ui/search-bar';
 import FilterList from '../../components/FilterList';
 import CardSmall from '../../components/CardSmall';
 import demoResume from '../../assets/data/demoResume';
+import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
 
 function Main() {
   const [popupId, setPopupId] = useState<number | null>(null);
@@ -42,8 +43,12 @@ function Main() {
         <div className={styles.main__content}>
           <div className={styles.main__cards}>
             <SearchBar value="Поиск" />
-            {/* TODO: здесь сделать массив по карточкам */}
-            <div className={styles['main__cards-container']}>{cards}</div>
+            {/* // TODO: здесь сделать массив по карточкам */}
+            {cards.length > 0 ? (
+              <div className={styles['main__cards-container']}>{cards}</div>
+            ) : (
+              <NotFoundErrorMessage />
+            )}
           </div>
           <FilterList />
         </div>
