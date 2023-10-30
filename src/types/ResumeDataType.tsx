@@ -1,4 +1,4 @@
-export interface User {
+interface User {
   email: string;
   id: number;
   username: string;
@@ -6,28 +6,28 @@ export interface User {
   last_name: string;
 }
 
-export interface ContactInfo {
+interface ContactInfo {
   phone_number: string;
   alternate_email: string;
   telegram_login: string;
 }
 
-export interface AcademicStatus {
+interface AcademicStatus {
   id: number;
   name: string;
 }
 
-export interface EmploymentStatus {
+interface EmploymentStatus {
   id: number;
   name: string;
 }
 
-export interface Grade {
+interface Grade {
   id: number;
   name: string;
 }
 
-export interface WorkExperience {
+interface WorkExperience {
   id: number;
   name: string;
   start_date: string;
@@ -36,33 +36,33 @@ export interface WorkExperience {
   total_experience_months: number;
 }
 
-export interface Location {
+interface Location {
   id: number;
   name: string;
 }
 
-export interface PortfolioItem {
+interface PortfolioItem {
   id: number;
   url: string;
 }
 
-export interface Language {
+interface Language {
   id: number;
   name: string;
 }
 
-export interface Education {
+interface Education {
   institution: string;
   specialization: string;
   education_level: string;
 }
 
-export interface Project {
+interface Project {
   title: string;
   description: string;
 }
 
-export interface Course {
+interface Course {
   id: number;
   specialization: {
     id: number;
@@ -74,7 +74,7 @@ export interface Course {
   }[];
 }
 
-export interface Specialization {
+interface Specialization {
   id: number;
   name: string;
 }

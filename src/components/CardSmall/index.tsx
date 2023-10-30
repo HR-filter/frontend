@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, Card, Grid, Typography, Divider, Button } from '@mui/material';
+import { Box, Card, IconButton, Divider, Button } from '@mui/material';
 import ChipResumeStatus from '../../ui/ChipResumeStatus';
 import ResumeDataType from '../../types/ResumeDataType';
 import demoResume from '../../assets/data/demoResume';
@@ -12,10 +12,6 @@ import EmailIcon from '../../ui/EmailIcon';
 import TelegramIcon from '../../ui/TelegramIcon';
 import DownloadIcon from '../../ui/DownloadIcon';
 import IconButtonResume from '../../ui/IconButtonResume';
-import BoxExperienceResume from '../../ui/BoxExperienceResume';
-import ChipStackResume from '../../ui/ChipStackResume';
-import ChipSkill from '../../ui/ChipSkill';
-import { WorkExperience } from '../../types/ResumeDataType';
 
 const achievementGenerator: () => number = () => {
   return Math.floor(Math.random() * 12);
@@ -87,48 +83,7 @@ const CardSmall: FC<{
         subheaderAcademicStatus={`${data.academic_status.name}`}
       />
       <Divider />
-      <Grid container spacing={11}>
-        {data.work_experience[0] && (
-          <>
-            <Grid item xs={3}>
-              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
-                Инфо
-              </Typography>
-            </Grid>
-            <Grid item xs={9}>
-              <Box>
-                {data.work_experience.map((experience: WorkExperience) => {
-                  return (
-                    <BoxExperienceResume
-                      workExperience={experience}
-                      location={data.location.name}
-                      variant="short"
-                    />
-                  );
-                })}
-              </Box>
-            </Grid>
-          </>
-        )}
-        {data.courses[0].skills[0] && (
-          <>
-            <Grid item xs={3}>
-              <Typography color="text.secondary" sx={{ fontWeight: 500 }}>
-                Ключевые навыки
-              </Typography>
-            </Grid>
-            <Grid item xs={9}>
-              <ChipStackResume>
-                {data.courses[0].skills
-                  .slice(0, 5)
-                  .map((skill: { id: number; name: string }) => {
-                    return <ChipSkill label={skill.name} />;
-                  })}
-              </ChipStackResume>
-            </Grid>
-          </>
-        )}
-      </Grid>
+      {/* Info component to go here */}
       <Divider />
       <CardActionsResume>
         <Box
