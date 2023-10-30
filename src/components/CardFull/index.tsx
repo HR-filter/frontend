@@ -57,7 +57,7 @@ const CardFull: FC<{
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
-        'overflow-y': 'auto',
+        overflowY: 'auto',
         // overflow: 'hidden',
         maxHeight: '90vh',
       }}
@@ -108,9 +108,10 @@ const CardFull: FC<{
             </Grid>
             <Grid item xs={9}>
               <Box>
-                {data.work_experience.map((experience: WorkExperience) => {
+                {data.work_experience.map((experience: WorkExperience, i) => {
                   return (
                     <BoxExperienceResume
+                      key={i}
                       workExperience={experience}
                       location={data.location.name}
                       variant="full"
@@ -131,8 +132,10 @@ const CardFull: FC<{
             </Grid>
             <Grid item xs={9}>
               <Box>
-                {data.courses.map((course: Course) => {
-                  return <BoxText text={`${course.specialization.name}`} />;
+                {data.courses.map((course: Course, i) => {
+                  return (
+                    <BoxText key={i} text={`${course.specialization.name}`} />
+                  );
                 })}
               </Box>
             </Grid>
@@ -148,8 +151,8 @@ const CardFull: FC<{
             </Grid>
             <Grid item xs={9}>
               <ChipStackResume>
-                {data.portfolio.map((item: PortfolioItem) => {
-                  return <ChipPortfolio link={item.url} />;
+                {data.portfolio.map((item: PortfolioItem, i) => {
+                  return <ChipPortfolio key={i} link={item.url} />;
                 })}
               </ChipStackResume>
             </Grid>
@@ -165,8 +168,8 @@ const CardFull: FC<{
             </Grid>
             <Grid item xs={9}>
               <Box>
-                {data.projects.map((project: Project) => {
-                  return <BoxProjectResume project={project} />;
+                {data.projects.map((project: Project, i) => {
+                  return <BoxProjectResume key={i} project={project} />;
                 })}
               </Box>
             </Grid>
@@ -184,7 +187,7 @@ const CardFull: FC<{
               <ChipStackResume>
                 {data.courses[0].skills.map(
                   (skill: { id: number; name: string }) => {
-                    return <ChipSkill label={skill.name} />;
+                    return <ChipSkill key={skill.id} label={skill.name} />;
                   },
                 )}
               </ChipStackResume>
@@ -201,8 +204,8 @@ const CardFull: FC<{
             </Grid>
             <Grid item xs={9}>
               <Box>
-                {data.languages.map((language: Language) => {
-                  return <BoxText text={language.name} />;
+                {data.languages.map((language: Language, i) => {
+                  return <BoxText key={i} text={language.name} />;
                 })}
               </Box>
             </Grid>
@@ -217,8 +220,8 @@ const CardFull: FC<{
             </Grid>
             <Grid item xs={9}>
               <Box>
-                {data.educations.map((education: Education) => {
-                  return <BoxEducationResume education={education} />;
+                {data.educations.map((education: Education, i) => {
+                  return <BoxEducationResume key={i} education={education} />;
                 })}
               </Box>
             </Grid>

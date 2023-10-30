@@ -1,32 +1,72 @@
-import { ReactNode } from 'react';
-import Box from '@mui/material/Box';
+import { useEffect } from 'react';
 import Slide from '@mui/material/Slide';
+import classnames from 'classnames';
+import classes from './style.module.scss';
+import CardFull from '../CardFull';
+import demoResume from '../../assets/data/demoResume';
 
 interface SimpleSlideProps {
-  isSlideOpen?: boolean;
-  setIsSlideOpen?: (isSlideOpen: boolean) => void;
-  children: ReactNode;
+  // setIsSlideOpen?: (isSlideOpen: boolean) => void;
+  id: string;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
 export const SimpleSlide: React.FC<SimpleSlideProps> = ({
-  isSlideOpen,
-  setIsSlideOpen,
-  children,
+  id = '0',
+  isOpen = false,
+  onClose = () => {},
 }) => {
-  console.log(setIsSlideOpen);
-  // onClose={setIsSlideOpen}
+  const getPopupClasses = classnames(classes.popup, {
+    [classes.popup_opened]: isOpen,
+  });
+
+  useEffect(() => {
+    console.log(id);
+  }, []);
+
+  useEffect(() => {
+    function handleEscClose(evt: Event) {
+      const keyboardEvent = evt as unknown as KeyboardEvent;
+      if (keyboardEvent.key === 'Escape') {
+        onClose();
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscClose);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscClose);
+    };
+  }, [isOpen, onClose]);
+
+  const handleCloseByOverlay = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ) => {
+    if ((e.target as HTMLElement).classList.contains(classes.popup)) {
+      onClose();
+    }
+  };
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        position: 'relative',
-        zIndex: 1,
-      }}
-    >
-      <Slide direction="left" in={isSlideOpen} mountOnEnter unmountOnExit>
-        <div>{children}</div>
-      </Slide>
-    </Box>
+    <Slide direction="left" in={isOpen} mountOnEnter unmountOnExit>
+      <section className={getPopupClasses} onClick={handleCloseByOverlay}>
+        <div className={classes.popup__form}>
+          <CardFull
+            // TODO: прокинуть пропсом id и по id найти через апи данные для этой карты
+            data={demoResume}
+            isViewed={true}
+            isFavourite={true}
+            pdfLink="http://ya.ru"
+            onClickLike={() => console.log('test')}
+            onClickTelegram={() => console.log('test')}
+            onClickEmail={() => console.log('test')}
+            onClickDownload={() => console.log('test')}
+          />
+        </div>
+      </section>
+    </Slide>
   );
 };

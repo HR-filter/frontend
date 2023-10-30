@@ -97,9 +97,10 @@ const CardSmall: FC<{
             </Grid>
             <Grid item xs={9}>
               <Box>
-                {data.work_experience.map((experience: WorkExperience) => {
+                {data.work_experience.map((experience: WorkExperience, i) => {
                   return (
                     <BoxExperienceResume
+                      key={i}
                       workExperience={experience}
                       location={data.location.name}
                       variant="short"
@@ -122,7 +123,7 @@ const CardSmall: FC<{
                 {data.courses[0].skills
                   .slice(0, 5)
                   .map((skill: { id: number; name: string }) => {
-                    return <ChipSkill label={skill.name} />;
+                    return <ChipSkill key={skill.id} label={skill.name} />;
                   })}
               </ChipStackResume>
             </Grid>
