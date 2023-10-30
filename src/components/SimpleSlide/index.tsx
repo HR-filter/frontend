@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
-import CardInfo from '../CardInfo';
-import demoUserData from '../../assets/data/demoUser';
+import CardFull from '../CardFull';
+import demoResume from '../../assets/data/demoResume';
 import { Dispatch, FC, SetStateAction } from 'react';
 
 export const SimpleSlide: FC<{
@@ -13,7 +13,17 @@ export const SimpleSlide: FC<{
   // Сюда заносим что надо отрендерить справа в окне
   const body = (
     <Box>
-      <CardInfo userData={demoUserData} />
+      <CardFull
+        data={demoResume}
+        isViewed={true}
+        isFavourite={true}
+        pdfLink="http://ya.ru"
+        onClickLike={() => console.log('test')}
+        onClickDetails={() => console.log('test')}
+        onClickTelegram={() => console.log('test')}
+        onClickEmail={() => console.log('test')}
+        onClickDownload={() => console.log('test')}
+      />
     </Box>
   );
 
