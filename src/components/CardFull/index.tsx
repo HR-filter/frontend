@@ -57,6 +57,9 @@ const CardFull: FC<{
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
+        'overflow-y': 'auto',
+        // overflow: 'hidden',
+        maxHeight: '90vh',
       }}
     >
       <CardActionsResume>
