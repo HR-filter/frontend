@@ -14,7 +14,6 @@ function Main() {
         isFavourite={true}
         pdfLink="http://ya.ru"
         onClickLike={() => console.log('test')}
-        onClickDetails={() => console.log('test')}
         onClickTelegram={() => console.log('test')}
         onClickEmail={() => console.log('test')}
         onClickDownload={() => console.log('test')}
