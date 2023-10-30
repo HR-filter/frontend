@@ -13,7 +13,7 @@ const IconButtonClose: FC<{
         width: '36px',
         height: '36px',
         borderRadius: '6px',
-        marginLeft: '14px',
+        marginLeft: '4px',
       }}
     >
       <CloseIcon sx={{ width: '20px', height: '20px' }} />
