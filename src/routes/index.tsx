@@ -95,6 +95,7 @@ const router = createBrowserRouter(
                     onClickTelegram={() => console.log('test')}
                     onClickEmail={() => console.log('test')}
                     onClickDownload={() => console.log('test')}
+                    onClickClose={() => console.log('test')}
                   />
                 </>
               }
