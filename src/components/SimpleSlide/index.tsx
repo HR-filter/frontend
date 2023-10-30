@@ -64,6 +64,7 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
             onClickTelegram={() => console.log('test')}
             onClickEmail={() => console.log('test')}
             onClickDownload={() => console.log('test')}
+            onClickClose={onClose}
           />
         </div>
       </section>

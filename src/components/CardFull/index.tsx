@@ -11,7 +11,6 @@ import ResumeDataType, {
 } from '../../types/ResumeDataType';
 import demoResume from '../../assets/data/demoResume';
 import CardActionsResume from '../../ui/CardActionsResume';
-import ViewedIcon from '../../ui/ViewedIcon';
 import FavouriteToggleResume from '../../ui/FavouriteToggleResume';
 import CardHeaderResume from '../../ui/CardHeaderResume';
 import AvatarResume from '../../ui/AvatarResume';
@@ -43,7 +42,6 @@ const CardFull: FC<{
   pdfLink: string;
 }> = ({
   data = demoResume,
-  isViewed = true,
   isFavourite = true,
   onClickLike,
   onClickTelegram,

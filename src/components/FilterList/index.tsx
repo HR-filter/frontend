@@ -92,7 +92,10 @@ export default function FilterList() {
           padding={6}
           gap={5}
           direction="column"
+          position="sticky"
           borderRadius={1}
+          right={0}
+          top={0}
         >
           <Title title="Фильтры" color="text.secondary" fontSize={14} />
           <Stack gap={5} justifyContent="center">
