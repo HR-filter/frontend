@@ -19,7 +19,7 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
   return (
     <Box
       sx={{
-        width: 711,
+        width: '100%',
         position: 'relative',
         zIndex: 1,
       }}

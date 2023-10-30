@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { SimpleSlide } from '../../components/SimpleSlide';
-import CardFull from '../../components/CardFull';
-import demoResume from '../../assets/data/demoResume';
+import styles from './style.module.scss';
+// import CardFull from '../../components/CardFull';
+// import demoResume from '../../assets/data/demoResume';
 
 function Main() {
   const [isSlideOpen, setIsSlideOpen] = useState(true);
 
   return (
     <SimpleSlide isSlideOpen={isSlideOpen} setIsSlideOpen={setIsSlideOpen}>
-      <CardFull
+      <div className={styles.main}>
+        <h1 className={styles.main__header}>Поиск кандидатов</h1>
+      </div>
+      {/* <CardFull
         data={demoResume}
         isViewed={true}
         isFavourite={true}
@@ -17,7 +21,7 @@ function Main() {
         onClickTelegram={() => console.log('test')}
         onClickEmail={() => console.log('test')}
         onClickDownload={() => console.log('test')}
-      />
+      /> */}
     </SimpleSlide>
   );
 }
