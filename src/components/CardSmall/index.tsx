@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Box, Card, Grid, Typography, Divider, Button } from '@mui/material';
 import ChipResumeStatus from '../../ui/ChipResumeStatus';
 import ResumeDataType from '../../types/ResumeDataType';
-import demoResume from '../../assets/data/demoResume';
+import { demoResume } from '../../assets/data/demoResume';
 import CardActionsResume from '../../ui/CardActionsResume';
 import ViewedIcon from '../../ui/ViewedIcon';
 import FavouriteToggleResume from '../../ui/FavouriteToggleResume';

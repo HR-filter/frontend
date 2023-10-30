@@ -80,6 +80,7 @@ export interface Specialization {
 }
 
 interface ResumeDataType {
+  id: number;
   user: User;
   age: number;
   photo: string;
