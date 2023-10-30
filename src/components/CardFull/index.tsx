@@ -25,6 +25,7 @@ import ChipPortfolio from '../../ui/ChipPortfolio';
 import BoxProjectResume from '../../ui/BoxProjectResume';
 import ChipSkill from '../../ui/ChipSkill';
 import BoxEducationResume from '../../ui/BoxEducationResume';
+import IconButtonClose from '../../ui/IconButtonClose';
 
 const achievementGenerator: () => number = () => {
   return Math.floor(Math.random() * 12);
@@ -38,6 +39,7 @@ const CardFull: FC<{
   onClickTelegram: () => void;
   onClickEmail: () => void;
   onClickDownload: () => void;
+  onClickClose: () => void;
   pdfLink: string;
 }> = ({
   data = demoResume,
@@ -47,6 +49,7 @@ const CardFull: FC<{
   onClickTelegram,
   onClickEmail,
   onClickDownload,
+  onClickClose,
   pdfLink = '',
 }) => {
   return (
@@ -72,13 +75,13 @@ const CardFull: FC<{
             gap: '6px',
           }}
         >
-          {isViewed && <ViewedIcon />}
           <FavouriteToggleResume
             isEnabled={isFavourite}
             isActive={true}
             value={isFavourite}
             onChange={onClickLike}
           />
+          <IconButtonClose onClick={onClickClose} />
         </Box>
       </CardActionsResume>
       <CardHeaderResume
