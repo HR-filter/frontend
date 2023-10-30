@@ -1,5 +1,3 @@
-import { Offline, Online } from 'react-detect-offline';
-
 import {
   Route,
   createBrowserRouter,
@@ -39,12 +37,8 @@ const router = createBrowserRouter(
             {...defaultProtectedRouteProps}
             outlet={
               <>
-                <Online>
-                  <Root />
-                </Online>
-                <Offline>
-                  <ErrorBoundary />
-                </Offline>
+                <Root />
+                <ErrorBoundary />
               </>
             }
           />
