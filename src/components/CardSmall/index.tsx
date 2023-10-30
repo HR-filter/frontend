@@ -166,6 +166,7 @@ const CardSmall: FC<{
             lineHeight: '20px',
           }}
           variant="text"
+          onClick={onClickDetails}
         >
           Подробнее
         </Button>

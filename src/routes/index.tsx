@@ -18,7 +18,6 @@ import ProtectedRoute from '../HOC/ProtectedRoute';
 import { ProtectedRouteProps } from '../HOC/ProtectedRoute';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
-import { SimpleSlide } from '../components/SimpleSlide';
 import Main from '../pages/Main';
 import CardFull from '../components/CardFull';
 import demoResume from '../assets/data/demoResume';
@@ -76,7 +75,6 @@ const router = createBrowserRouter(
                   <SearchBar value="Поиск" />
                   <CheckboxLabel title="Тестовое поле" label="111" />
                   <FilterList />
-                  <SimpleSlide />
                   <CardSmall
                     data={demoResume}
                     isViewed={true}
@@ -94,7 +92,6 @@ const router = createBrowserRouter(
                     isFavourite={true}
                     pdfLink="http://ya.ru"
                     onClickLike={() => console.log('test')}
-                    onClickDetails={() => console.log('test')}
                     onClickTelegram={() => console.log('test')}
                     onClickEmail={() => console.log('test')}
                     onClickDownload={() => console.log('test')}

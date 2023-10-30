@@ -1,42 +1,31 @@
+import { ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
-import CardFull from '../CardFull';
-import demoResume from '../../assets/data/demoResume';
-import { Dispatch, FC, SetStateAction } from 'react';
 
-export const SimpleSlide: FC<{
+interface SimpleSlideProps {
   isSlideOpen?: boolean;
-  setIsSlideOpen?: Dispatch<SetStateAction<boolean>>;
-}> = ({ isSlideOpen, setIsSlideOpen }) => {
+  setIsSlideOpen?: (isSlideOpen: boolean) => void;
+  children: ReactNode;
+}
+
+export const SimpleSlide: React.FC<SimpleSlideProps> = ({
+  isSlideOpen,
+  setIsSlideOpen,
+  children,
+}) => {
   console.log(setIsSlideOpen);
   // onClose={setIsSlideOpen}
-  // Сюда заносим что надо отрендерить справа в окне
-  const body = (
-    <Box>
-      <CardFull
-        data={demoResume}
-        isViewed={true}
-        isFavourite={true}
-        pdfLink="http://ya.ru"
-        onClickLike={() => console.log('test')}
-        onClickDetails={() => console.log('test')}
-        onClickTelegram={() => console.log('test')}
-        onClickEmail={() => console.log('test')}
-        onClickDownload={() => console.log('test')}
-      />
-    </Box>
-  );
 
   return (
     <Box
       sx={{
-        width: 711,
+        width: '100%',
         position: 'relative',
         zIndex: 1,
       }}
     >
       <Slide direction="left" in={isSlideOpen} mountOnEnter unmountOnExit>
-        {body}
+        <div>{children}</div>
       </Slide>
     </Box>
   );

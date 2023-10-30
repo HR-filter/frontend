@@ -19,9 +19,10 @@ const ChipPortfolio: FC<{ link: string }> = ({ link }) => {
 
   function extractDomainName(url: string | undefined): string {
     if (url) {
+      // eslint-disable-next-line no-useless-escape
       const match = url.match(/^(?:https?:)?(?:\/\/)?(?:w{3}\.)?([^\/\?]+)\./i);
       const domainName = match && match[1];
-      return !!domainName
+      return domainName
         ? domainName.charAt(0).toUpperCase() + domainName.slice(1)
         : '' || '';
     }

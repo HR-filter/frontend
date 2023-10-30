@@ -17,7 +17,6 @@ import CardHeaderResume from '../../ui/CardHeaderResume';
 import AvatarResume from '../../ui/AvatarResume';
 import EmailIcon from '../../ui/EmailIcon';
 import TelegramIcon from '../../ui/TelegramIcon';
-import DownloadIcon from '../../ui/DownloadIcon';
 import IconButtonResume from '../../ui/IconButtonResume';
 import BoxExperienceResume from '../../ui/BoxExperienceResume';
 import BoxText from '../../ui/BoxText';
@@ -36,7 +35,6 @@ const CardFull: FC<{
   isViewed: boolean;
   isFavourite: boolean;
   onClickLike: () => void;
-  onClickDetails: () => void;
   onClickTelegram: () => void;
   onClickEmail: () => void;
   onClickDownload: () => void;
@@ -46,7 +44,6 @@ const CardFull: FC<{
   isViewed = true,
   isFavourite = true,
   onClickLike,
-  onClickDetails,
   onClickTelegram,
   onClickEmail,
   onClickDownload,
@@ -60,6 +57,9 @@ const CardFull: FC<{
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
+        'overflow-y': 'auto',
+        // overflow: 'hidden',
+        maxHeight: '90vh',
       }}
     >
       <CardActionsResume>
