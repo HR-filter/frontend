@@ -17,10 +17,6 @@ import ChipStackResume from '../../ui/ChipStackResume';
 import ChipSkill from '../../ui/ChipSkill';
 import { WorkExperience } from '../../types/ResumeDataType';
 
-const achievementGenerator: () => number = () => {
-  return Math.floor(Math.random() * 12);
-};
-
 const CardSmall: FC<{
   data: ResumeDataType;
   isViewed: boolean;
@@ -79,7 +75,7 @@ const CardSmall: FC<{
             imagePath={data.photo}
             withBadge={true}
             size={88}
-            badgeCount={achievementGenerator()}
+            badgeCount={data.achievements.length}
           />
         }
         title={`${data.user.first_name} ${data.user.last_name}`}

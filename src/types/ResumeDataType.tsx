@@ -102,6 +102,7 @@ interface ResumeDataType {
   skills_verified: boolean;
   has_video_presentation: boolean;
   percentage_match: number;
+  achievements: number[];
   viewed: boolean;
   is_favorited: boolean;
 }

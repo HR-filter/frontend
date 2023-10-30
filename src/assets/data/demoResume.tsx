@@ -7,6 +7,7 @@ const demoResume = {
     last_name: 'Тарелкин',
   },
   age: 28,
+  achievements: [2, 4, 5, 7, 1],
   photo:
     'http://127.0.0.1:8000/media/student_photos/None/1600253854_10_uwxlO8o.jpg',
   contact_info: {
