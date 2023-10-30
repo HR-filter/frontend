@@ -274,6 +274,7 @@ const CardFull: FC<{
               fontSize: '14px',
               fontWeight: 500,
               lineHeight: '20px',
+              color: '#ffffff',
             }}
             variant="contained"
           >
