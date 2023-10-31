@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { SimpleSlide } from '../../components/SimpleSlide';
 import styles from './style.module.scss';
 import SearchBar from '../../ui/search-bar';
-import FilterList from '../../components/FilterList';
 import CardSmall from '../../components/CardSmall';
 import { resumes } from '../../assets/data/demoResume';
 import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
@@ -16,16 +15,26 @@ import {
   addViewed,
 } from '../../actions/userActions';
 
-function Main() {
+function Favourite() {
   const dispatch = useDispatch(); // Получить диспетчер для отправки действий в хранилище
 
-  const [popupId, setPopupId] = useState<number | null>(null);
   // Селектор для получения favoriteCardIds
   const favoriteCardIds = useSelector(
     (state: RootState) => state.user.favoriteCardIds,
   );
   // Получить массив "просмотренных" карточек
   const viewedCardIds = useSelector((state: RootState) => state.user.viewed);
+
+  const [popupId, setPopupId] = useState<number | null>(null);
+
+  const openPopup = (id: number | null) => {
+    setPopupId(id);
+    onViewed(id);
+  };
+
+  const onHandleClose = () => {
+    setPopupId(null);
+  };
 
   const onToggleFavorite = (id: number) => {
     if (favoriteCardIds.includes(id)) {
@@ -44,35 +53,27 @@ function Main() {
     }
   };
 
-  const openPopup = (id: number | null) => {
-    setPopupId(id);
-    // При открытии попапа, отметьте карточку как просмотренную
-    onViewed(id);
-  };
-
-  const onHandleClose = () => {
-    setPopupId(null);
-  };
-
-  const cards = resumes.map((resume) => (
-    <CardSmall
-      key={resume.id}
-      data={resume}
-      isViewed={viewedCardIds.includes(resume.id)}
-      isFavourite={favoriteCardIds.includes(resume.id)}
-      pdfLink=""
-      onClickLike={() => onToggleFavorite(resume.id)}
-      onClickDetails={() => openPopup(resume.id)}
-      onClickTelegram={() => console.log('test')}
-      onClickEmail={() => console.log('test')}
-      onClickDownload={() => console.log('test')}
-    />
-  ));
+  const cards = resumes
+    .filter((resume) => favoriteCardIds.includes(resume.id))
+    .map((resume) => (
+      <CardSmall
+        key={resume.id}
+        data={resume}
+        isViewed={viewedCardIds.includes(resume.id)}
+        isFavourite={favoriteCardIds.includes(resume.id)}
+        pdfLink=""
+        onClickLike={() => onToggleFavorite(resume.id)}
+        onClickDetails={() => openPopup(resume.id)}
+        onClickTelegram={() => console.log('test')}
+        onClickEmail={() => console.log('test')}
+        onClickDownload={() => console.log('test')}
+      />
+    ));
 
   return (
     <>
       <div className={styles.main}>
-        <h1 className={styles.main__header}>Поиск кандидатов</h1>
+        <h1 className={styles.main__header}>Избранные кандидаты</h1>
         <div className={styles.main__content}>
           <div className={styles.main__cards}>
             <SearchBar value="Поиск" />
@@ -83,7 +84,6 @@ function Main() {
               <NotFoundErrorMessage />
             )}
           </div>
-          <FilterList />
         </div>
       </div>
 
@@ -96,4 +96,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Favourite;

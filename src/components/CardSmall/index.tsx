@@ -29,8 +29,8 @@ const CardSmall: FC<{
   pdfLink: string;
 }> = ({
   data = demoResume,
-  isViewed = true,
-  isFavourite = true,
+  isViewed = false,
+  isFavourite = false,
   onClickLike,
   onClickDetails,
   onClickTelegram,
@@ -60,8 +60,8 @@ const CardSmall: FC<{
         >
           {isViewed && <ViewedIcon />}
           <FavouriteToggleResume
-            isEnabled={isFavourite}
-            isActive={true}
+            isEnabled={true}
+            isActive={isFavourite}
             value={isFavourite}
             onChange={onClickLike}
           />

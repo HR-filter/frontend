@@ -17,6 +17,7 @@ import { ProtectedRouteProps } from '../HOC/ProtectedRoute';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import Main from '../pages/Main';
+import Favourite from '../pages/Favoutite';
 import CardFull from '../components/CardFull';
 import { demoResume } from '../assets/data/demoResume';
 
@@ -56,7 +57,7 @@ const router = createBrowserRouter(
           element={
             <ProtectedRoute
               {...defaultProtectedRouteProps}
-              outlet={<p>Здесь собранная страница favourite</p>}
+              outlet={<Favourite />}
             />
           }
         />
@@ -72,8 +73,8 @@ const router = createBrowserRouter(
                   <FilterList />
                   <CardSmall
                     data={demoResume}
-                    isViewed={true}
-                    isFavourite={true}
+                    isViewed={false}
+                    isFavourite={false}
                     pdfLink=""
                     onClickLike={() => console.log('test')}
                     onClickDetails={() => console.log('test')}
@@ -83,8 +84,8 @@ const router = createBrowserRouter(
                   />
                   <CardFull
                     data={demoResume}
-                    isViewed={true}
-                    isFavourite={true}
+                    isViewed={false}
+                    isFavourite={false}
                     pdfLink="http://ya.ru"
                     onClickLike={() => console.log('test')}
                     onClickTelegram={() => console.log('test')}
