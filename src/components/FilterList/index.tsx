@@ -95,7 +95,7 @@ export default function FilterList() {
           position="sticky"
           borderRadius={1}
           right={0}
-          top={0}
+          top={20}
         >
           <Title title="Фильтры" color="text.secondary" fontSize={14} />
           <Stack gap={5} justifyContent="center">
