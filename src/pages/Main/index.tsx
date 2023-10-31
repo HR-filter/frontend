@@ -10,7 +10,11 @@ import FilterList from '../../components/FilterList';
 import CardSmall from '../../components/CardSmall';
 import { resumes } from '../../assets/data/demoResume';
 import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
-import { addToFavorites, removeFromFavorites } from '../../actions/userActions';
+import {
+  addToFavorites,
+  removeFromFavorites,
+  addViewed,
+} from '../../actions/userActions';
 
 function Main() {
   const dispatch = useDispatch(); // Получить диспетчер для отправки действий в хранилище
@@ -20,6 +24,8 @@ function Main() {
   const favoriteCardIds = useSelector(
     (state: RootState) => state.user.favoriteCardIds,
   );
+  // Получить массив "просмотренных" карточек
+  const viewedCardIds = useSelector((state: RootState) => state.user.viewed);
 
   const onToggleFavorite = (id: number) => {
     if (favoriteCardIds.includes(id)) {
@@ -31,8 +37,17 @@ function Main() {
     }
   };
 
+  const onViewed = (id: number) => {
+    if (!viewedCardIds.includes(id)) {
+      // Если карточка еще не просмотрена, добавьте ее в "просмотренные"
+      dispatch(addViewed(id));
+    }
+  };
+
   const openPopup = (id: number | null) => {
     setPopupId(id);
+    // При открытии попапа, отметьте карточку как просмотренную
+    onViewed(id);
   };
 
   const onHandleClose = () => {
@@ -43,7 +58,7 @@ function Main() {
     <CardSmall
       key={resume.id}
       data={resume}
-      isViewed={false}
+      isViewed={viewedCardIds.includes(resume.id)}
       isFavourite={favoriteCardIds.includes(resume.id)}
       pdfLink=""
       onClickLike={() => onToggleFavorite(resume.id)}

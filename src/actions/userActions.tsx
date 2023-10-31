@@ -6,3 +6,4 @@ export const addToFavorites = createAction<number>('user/addToFavorites'); // Д
 export const removeFromFavorites = createAction<number>(
   'user/removeFromFavorites',
 ); // Удалить карточку из избранного
+export const addViewed = createAction<number>('user/addViewed'); // Добавить карточку в просмотренные
