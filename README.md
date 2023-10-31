@@ -40,6 +40,6 @@ npm run dev
 
 https://disk.yandex.ru/d/McoDoaH9yeR46Q
 
-## Архив с кодом
+## Архив со скриншотами
 
 https://disk.yandex.ru/d/puEQKZ-x5sXZvQ
