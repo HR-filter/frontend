@@ -52,15 +52,12 @@ const CardFull: FC<{
 }) => {
   return (
     <Card
+      elevation={0}
       sx={{
-        borderRadius: '16px',
         padding: '20px',
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
-        overflowY: 'auto',
-        // overflow: 'hidden',
-        maxHeight: '90vh',
       }}
     >
       <CardActionsResume>
@@ -99,7 +96,7 @@ const CardFull: FC<{
         subheaderAcademicStatus={`${data.academic_status.name}`}
       />
       <Divider />
-      <Grid container spacing={11}>
+      <Grid container spacing={11} sx={{ paddingBottom: '20px' }}>
         {data.work_experience[0] && (
           <>
             <Grid item xs={3}>

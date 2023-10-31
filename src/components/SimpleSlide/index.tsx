@@ -1,12 +1,8 @@
-import { useEffect } from 'react';
 import { Drawer, Box } from '@mui/material';
-import classnames from 'classnames';
-import classes from './style.module.scss';
 import CardFull from '../CardFull';
 import demoResume from '../../assets/data/demoResume';
 
 interface SimpleSlideProps {
-  // setIsSlideOpen?: (isSlideOpen: boolean) => void;
   id: number | null;
   isOpen?: boolean;
   onClose: () => void;
