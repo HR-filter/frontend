@@ -73,8 +73,8 @@ const router = createBrowserRouter(
                   <FilterList />
                   <CardSmall
                     data={demoResume}
-                    isViewed={true}
-                    isFavourite={true}
+                    isViewed={false}
+                    isFavourite={false}
                     pdfLink=""
                     onClickLike={() => console.log('test')}
                     onClickDetails={() => console.log('test')}
@@ -84,8 +84,8 @@ const router = createBrowserRouter(
                   />
                   <CardFull
                     data={demoResume}
-                    isViewed={true}
-                    isFavourite={true}
+                    isViewed={false}
+                    isFavourite={false}
                     pdfLink="http://ya.ru"
                     onClickLike={() => console.log('test')}
                     onClickTelegram={() => console.log('test')}

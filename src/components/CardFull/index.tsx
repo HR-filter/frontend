@@ -40,7 +40,7 @@ const CardFull: FC<{
   pdfLink: string;
 }> = ({
   data = demoResume,
-  isFavourite = true,
+  isFavourite = false,
   onClickLike,
   onClickTelegram,
   onClickEmail,

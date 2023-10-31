@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../app/store/index';
+import { useDispatch } from 'react-redux';
 
 import { SimpleSlide } from '../../components/SimpleSlide';
 import styles from './style.module.scss';
@@ -6,8 +9,15 @@ import SearchBar from '../../ui/search-bar';
 import CardSmall from '../../components/CardSmall';
 import { resumes } from '../../assets/data/demoResume';
 import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
+import { addToFavorites, removeFromFavorites } from '../../actions/userActions';
 
 function Favourite() {
+  const dispatch = useDispatch(); // Получить диспетчер для отправки действий в хранилище
+
+  // Селектор для получения favoriteCardIds
+  const favoriteCardIds = useSelector(
+    (state: RootState) => state.user.favoriteCardIds,
+  );
   const [popupId, setPopupId] = useState<number | null>(null);
 
   const openPopup = (id: number | null) => {
@@ -18,20 +28,32 @@ function Favourite() {
     setPopupId(null);
   };
 
-  const cards = resumes.map((resume) => (
-    <CardSmall
-      key={resume.id}
-      data={resume}
-      isViewed={true}
-      isFavourite={true}
-      pdfLink=""
-      onClickLike={() => console.log('test')}
-      onClickDetails={() => openPopup(resume.id)} // Используйте resume.id вместо индекса
-      onClickTelegram={() => console.log('test')}
-      onClickEmail={() => console.log('test')}
-      onClickDownload={() => console.log('test')}
-    />
-  ));
+  const onToggleFavorite = (id: number) => {
+    if (favoriteCardIds.includes(id)) {
+      // Если ID уже в избранных, удаляем его
+      dispatch(removeFromFavorites(id));
+    } else {
+      // Если ID не в избранных, добавляем его
+      dispatch(addToFavorites(id));
+    }
+  };
+
+  const cards = resumes
+    .filter((resume) => favoriteCardIds.includes(resume.id))
+    .map((resume) => (
+      <CardSmall
+        key={resume.id}
+        data={resume}
+        isViewed={false}
+        isFavourite={favoriteCardIds.includes(resume.id)}
+        pdfLink=""
+        onClickLike={() => onToggleFavorite(resume.id)}
+        onClickDetails={() => openPopup(resume.id)}
+        onClickTelegram={() => console.log('test')}
+        onClickEmail={() => console.log('test')}
+        onClickDownload={() => console.log('test')}
+      />
+    ));
 
   return (
     <>
