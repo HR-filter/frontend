@@ -1,5 +1,3 @@
-import { Offline, Online } from 'react-detect-offline';
-
 import {
   Route,
   createBrowserRouter,
@@ -20,7 +18,7 @@ import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import Main from '../pages/Main';
 import CardFull from '../components/CardFull';
-import demoResume from '../assets/data/demoResume';
+import { demoResume } from '../assets/data/demoResume';
 
 const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
   isAuthenticated: true,
@@ -39,16 +37,13 @@ const router = createBrowserRouter(
             {...defaultProtectedRouteProps}
             outlet={
               <>
-                <Online>
-                  <Root />
-                </Online>
-                <Offline>
-                  <ErrorBoundary />
-                </Offline>
+                <Root />
+                {/* <ErrorBoundary /> */}
               </>
             }
           />
         }
+        errorElement={<ErrorBoundary />}
       >
         <Route
           path="/"

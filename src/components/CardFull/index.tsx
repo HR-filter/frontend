@@ -9,7 +9,7 @@ import ResumeDataType, {
   Project,
   WorkExperience,
 } from '../../types/ResumeDataType';
-import demoResume from '../../assets/data/demoResume';
+import { demoResume } from '../../assets/data/demoResume';
 import CardActionsResume from '../../ui/CardActionsResume';
 import FavouriteToggleResume from '../../ui/FavouriteToggleResume';
 import CardHeaderResume from '../../ui/CardHeaderResume';
@@ -25,10 +25,8 @@ import BoxProjectResume from '../../ui/BoxProjectResume';
 import ChipSkill from '../../ui/ChipSkill';
 import BoxEducationResume from '../../ui/BoxEducationResume';
 import IconButtonClose from '../../ui/IconButtonClose';
-
-const achievementGenerator: () => number = () => {
-  return Math.floor(Math.random() * 12);
-};
+import Achievement from '../../ui/Achievement';
+import styles from './style.module.scss';
 
 const CardFull: FC<{
   data: ResumeDataType;
@@ -50,6 +48,10 @@ const CardFull: FC<{
   onClickClose,
   pdfLink = '',
 }) => {
+  const achievements = data.achievements.map((achievementId) => (
+    <Achievement key={achievementId} id={achievementId} />
+  ));
+
   return (
     <Card
       elevation={0}
@@ -87,7 +89,7 @@ const CardFull: FC<{
             imagePath={data.photo}
             withBadge={false}
             size={150}
-            badgeCount={achievementGenerator()}
+            badgeCount={achievements.length}
           />
         }
         title={`${data.user.first_name} ${data.user.last_name}`}
@@ -95,6 +97,7 @@ const CardFull: FC<{
         subheaderAdditionalInfo={`${data.age} лет • ${data.location.name}`}
         subheaderAcademicStatus={`${data.academic_status.name}`}
       />
+      <div className={styles.achievement}>{achievements}</div>
       <Divider />
       <Grid container spacing={11} sx={{ paddingBottom: '20px' }}>
         {data.work_experience[0] && (
@@ -271,6 +274,7 @@ const CardFull: FC<{
               fontSize: '14px',
               fontWeight: 500,
               lineHeight: '20px',
+              color: '#ffffff',
             }}
             variant="contained"
           >

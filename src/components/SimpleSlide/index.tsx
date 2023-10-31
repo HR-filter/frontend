@@ -1,6 +1,6 @@
 import { Drawer, Box } from '@mui/material';
 import CardFull from '../CardFull';
-import demoResume from '../../assets/data/demoResume';
+import { demoResume, resumes } from '../../assets/data/demoResume';
 
 interface SimpleSlideProps {
   id: number | null;
@@ -13,6 +13,7 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
   isOpen = false,
   onClose,
 }) => {
+const defaultResumeData = demoResume;
   return (
     <Drawer anchor="right" open={isOpen} onClose={onClose}>
       <Box
@@ -22,7 +23,7 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
         }}
       >
         <CardFull
-          data={demoResume}
+          data={foundResume || defaultResumeData}
           isViewed={true}
           isFavourite={true}
           pdfLink="http://ya.ru"
@@ -34,5 +35,6 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
         />
       </Box>
     </Drawer>
+
   );
 };

@@ -5,7 +5,8 @@ import styles from './style.module.scss';
 import SearchBar from '../../ui/search-bar';
 import FilterList from '../../components/FilterList';
 import CardSmall from '../../components/CardSmall';
-import demoResume from '../../assets/data/demoResume';
+import { resumes } from '../../assets/data/demoResume';
+import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
 
 function Main() {
   const [popupId, setPopupId] = useState<number | null>(null);
@@ -18,22 +19,20 @@ function Main() {
     setPopupId(null);
   };
 
-  const cards = Array(8)
-    .fill(null)
-    .map((_, index) => (
-      <CardSmall
-        key={index}
-        data={demoResume}
-        isViewed={true}
-        isFavourite={true}
-        pdfLink=""
-        onClickLike={() => console.log('test')}
-        onClickDetails={() => openPopup(index)}
-        onClickTelegram={() => console.log('test')}
-        onClickEmail={() => console.log('test')}
-        onClickDownload={() => console.log('test')}
-      />
-    ));
+  const cards = resumes.map((resume) => (
+    <CardSmall
+      key={resume.id}
+      data={resume}
+      isViewed={true}
+      isFavourite={true}
+      pdfLink=""
+      onClickLike={() => console.log('test')}
+      onClickDetails={() => openPopup(resume.id)} // Используйте resume.id вместо индекса
+      onClickTelegram={() => console.log('test')}
+      onClickEmail={() => console.log('test')}
+      onClickDownload={() => console.log('test')}
+    />
+  ));
 
   return (
     <>
@@ -42,8 +41,12 @@ function Main() {
         <div className={styles.main__content}>
           <div className={styles.main__cards}>
             <SearchBar value="Поиск" />
-            {/* TODO: здесь сделать массив по карточкам */}
-            <div className={styles['main__cards-container']}>{cards}</div>
+            {/* // TODO: здесь сделать массив по карточкам */}
+            {cards.length > 0 ? (
+              <div className={styles['main__cards-container']}>{cards}</div>
+            ) : (
+              <NotFoundErrorMessage />
+            )}
           </div>
           <FilterList />
         </div>

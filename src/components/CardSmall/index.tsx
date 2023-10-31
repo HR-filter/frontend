@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Box, Card, Grid, Typography, Divider, Button } from '@mui/material';
 import ChipResumeStatus from '../../ui/ChipResumeStatus';
 import ResumeDataType from '../../types/ResumeDataType';
-import demoResume from '../../assets/data/demoResume';
+import { demoResume } from '../../assets/data/demoResume';
 import CardActionsResume from '../../ui/CardActionsResume';
 import ViewedIcon from '../../ui/ViewedIcon';
 import FavouriteToggleResume from '../../ui/FavouriteToggleResume';
@@ -16,10 +16,6 @@ import BoxExperienceResume from '../../ui/BoxExperienceResume';
 import ChipStackResume from '../../ui/ChipStackResume';
 import ChipSkill from '../../ui/ChipSkill';
 import { WorkExperience } from '../../types/ResumeDataType';
-
-const achievementGenerator: () => number = () => {
-  return Math.floor(Math.random() * 12);
-};
 
 const CardSmall: FC<{
   data: ResumeDataType;
@@ -79,7 +75,7 @@ const CardSmall: FC<{
             imagePath={data.photo}
             withBadge={true}
             size={88}
-            badgeCount={achievementGenerator()}
+            badgeCount={data.achievements.length}
           />
         }
         title={`${data.user.first_name} ${data.user.last_name}`}
