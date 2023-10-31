@@ -2,33 +2,33 @@
 
 :root {
   /* Основные цвета */
-  --disabled-color: #DDE0E4;
-  --white-color: #FFFFFF;
-  --primary-blue-color: #5A9BFF;
-  --active-blue-color: #1D6BF3;
-  --light-grey-color: #F9FAFB;
-  --blue-bg-color: #F1F6FF;
-  --error-color: #FF0200;
+  --disabled-color: #dde0e4;
+  --white-color: #ffffff;
+  --primary-blue-color: #5a9bff;
+  --active-blue-color: #1d6bf3;
+  --light-grey-color: #f9fafb;
+  --blue-bg-color: #f1f6ff;
+  --error-color: #ff0200;
 
   /* Цвет текста */
-  --primary-text-color: #1A1B22;
+  --primary-text-color: #1a1b22;
   --text-grey-color: #797981;
-  --text-light-grey-color: #B5B5B7;
+  --text-light-grey-color: #b5b5b7;
 
   /* Дополнительные цвета */
-  --green-color: #87CC9E;
-  --purple-color: #7F67D2;
-  --orange-color: #FFCE92;
-  --light-green-color: #C2E5CE;
-  --light-purple-color: #CCC2ED;
-  --light-orange-color: #FFE1BD;
-  --rose-color: #FFDDE5;
-  --yellow-color: #FFF9D3;
-  --pink-color: #FFBFFD;
-  --pink-color-rgba-opacity-87:rgba(255, 191, 253, 0.87);
-  --brown-color: #A99175;
+  --green-color: #87cc9e;
+  --purple-color: #7f67d2;
+  --orange-color: #ffce92;
+  --light-green-color: #c2e5ce;
+  --light-purple-color: #ccc2ed;
+  --light-orange-color: #ffe1bd;
+  --rose-color: #ffdde5;
+  --yellow-color: #fff9d3;
+  --pink-color: #ffbffd;
+  --pink-color-rgba-opacity-87: rgba(255, 191, 253, 0.87);
+  --brown-color: #a99175;
   --brown-color-rgba-opacity-26: rgba(169, 145, 117, 0.26);
-  --light-blue-color: #ACCCFF;
+  --light-blue-color: #acccff;
   --disabled-buuton: var(--light-grey-color);
   --selected-element: var(--blue-bg-color);
 }

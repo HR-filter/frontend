@@ -1,0 +1,30 @@
+.popup {
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  background: rgb(0, 0, 0, 0.25);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 12;
+
+  &_opened {
+    visibility: visible;
+    opacity: 1;
+    transition:
+      visibility 0s,
+      opacity 0.3s linear;
+  }
+
+  &__form {
+    border-radius: 8px;
+    background: var(--purple-pale-color, #f9f7fc);
+    color: var(--primary-text-color, #0f0f0f);
+    box-sizing: border-box;
+    width: 700px;
+  }
+}
