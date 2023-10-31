@@ -13,7 +13,10 @@ export const SimpleSlide: React.FC<SimpleSlideProps> = ({
   isOpen = false,
   onClose,
 }) => {
-const defaultResumeData = demoResume;
+  const defaultResumeData = demoResume;
+  // Найти резюме по id
+  const foundResume = resumes.find((resume) => resume.id === id);
+
   return (
     <Drawer anchor="right" open={isOpen} onClose={onClose}>
       <Box
@@ -35,6 +38,5 @@ const defaultResumeData = demoResume;
         />
       </Box>
     </Drawer>
-
   );
 };
