@@ -14,7 +14,7 @@ function Main() {
     setPopupId(id);
   };
 
-  const onHandleClose = () => {
+  const closePopup = () => {
     setPopupId(null);
   };
 
@@ -51,8 +51,8 @@ function Main() {
 
       <SimpleSlide
         isOpen={popupId !== null}
-        id={String(popupId)}
-        onClose={onHandleClose}
+        id={popupId}
+        onClose={closePopup}
       />
     </>
   );
