@@ -39,3 +39,7 @@ npm run dev
 ## Архив с кодом
 
 https://disk.yandex.ru/d/McoDoaH9yeR46Q
+
+## Архив с кодом
+
+https://disk.yandex.ru/d/puEQKZ-x5sXZvQ
