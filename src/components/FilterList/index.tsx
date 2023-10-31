@@ -45,17 +45,84 @@ const filterData = [
       },
     ],
   },
+
   {
-    title: 'Навык',
-    name: 'skill',
+    title: 'Статус',
+    name: 'studentStatus',
     options: [
       {
         id: 1,
-        label: 'Junior',
+        label: 'Студент',
       },
       {
         id: 2,
-        label: 'Middle',
+        label: 'Академический отпуск',
+      },
+      {
+        id: 3,
+        label: 'Выпускник',
+      },
+      {
+        id: 4,
+        label: 'Отчислен',
+      },
+    ],
+  },
+  {
+    title: 'Опыт работы',
+    name: 'workExperience',
+    options: [
+      {
+        id: 1,
+        label: 'Нет опыта',
+      },
+      {
+        id: 2,
+        label: 'От 1 года до 3 лет',
+      },
+      {
+        id: 3,
+        label: 'От 3 до 6 лет',
+      },
+      {
+        id: 4,
+        label: 'Более 6 лет',
+      },
+    ],
+  },
+  {
+    title: 'Местоположение',
+    name: 'location',
+    options: [
+      {
+        id: 1,
+        label: 'Москва',
+      },
+      {
+        id: 2,
+        label: 'Париж',
+      },
+    ],
+  },
+  {
+    title: 'Активность в трекере',
+    name: 'activity',
+    options: [
+      {
+        id: 1,
+        label: 'Ищу работу',
+      },
+      {
+        id: 2,
+        label: 'Трудоустроен',
+      },
+      {
+        id: 3,
+        label: 'В поиске стажировки',
+      },
+      {
+        id: 4,
+        label: 'Другое',
       },
     ],
   },
@@ -63,6 +130,10 @@ const filterData = [
 
 const checkboxData = [
   { title: 'Высшее образование', label: 'has_higher_education' },
+  { title: 'Участие в хакатонах', label: 'has_participated_in_hackathons' },
+  { title: 'Наличие пет-проектов', label: 'has_personal_projects' },
+  { title: 'Навыки подтверждены', label: 'skills_verified' },
+  { title: 'С видео презентацией', label: 'has_video_presentation' },
 ];
 // "Участие в хакатонах", "Наличие пет-проектов", "Навыки подтверждены", "С видео презентацией"
 
@@ -90,15 +161,17 @@ export default function FilterList() {
           width={280}
           justifyContent="center"
           padding={6}
-          gap={5}
+          gap={2}
           direction="column"
           position="sticky"
           borderRadius={1}
           right={0}
-          top={20}
+          top={10}
+          maxHeight={870}
+          sx={{ overflowY: 'auto' }}
         >
           <Title title="Фильтры" color="text.secondary" fontSize={14} />
-          <Stack gap={5} justifyContent="center">
+          <Stack gap={2} justifyContent="center">
             {filterData.map((item) => (
               <InputAuto
                 key={item.title}
@@ -121,7 +194,6 @@ export default function FilterList() {
           <Divider />
           <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
             <BasicButton text="Сохранить" isFiltersUsed type="submit" />
-            <BasicButton text="Сбросить" isFiltersUsed />
           </Stack>
         </Stack>
       </form>

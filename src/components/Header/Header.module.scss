@@ -14,9 +14,9 @@
   padding: 0;
   margin: 0;
   border: 0;
-}
 
-.notificationButton:hover {
-  cursor: pointer;
-  opacity: 0.8;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }

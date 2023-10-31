@@ -1,4 +1,5 @@
 const demoResume = {
+  id: 777,
   user: {
     email: 'Kirill@123.ru',
     id: 2,

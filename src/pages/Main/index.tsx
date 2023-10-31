@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store/index';
@@ -10,6 +11,8 @@ import FilterList from '../../components/FilterList';
 import CardSmall from '../../components/CardSmall';
 import { resumes } from '../../assets/data/demoResume';
 import NotFoundErrorMessage from '../../ui/NotFoundErrorMessage';
+import { Box, LinearProgress } from '@mui/material';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import {
   addToFavorites,
   removeFromFavorites,
@@ -20,6 +23,8 @@ function Main() {
   const dispatch = useDispatch(); // Получить диспетчер для отправки действий в хранилище
 
   const [popupId, setPopupId] = useState<number | null>(null);
+  const [cardsArray, setcardsArray] = useState(resumes);
+
   // Селектор для получения favoriteCardIds
   const favoriteCardIds = useSelector(
     (state: RootState) => state.user.favoriteCardIds,
@@ -44,7 +49,7 @@ function Main() {
     }
   };
 
-  const openPopup = (id: number | null) => {
+  const openPopup = (id: number) => {
     setPopupId(id);
     // При открытии попапа, отметьте карточку как просмотренную
     onViewed(id);
@@ -54,20 +59,26 @@ function Main() {
     setPopupId(null);
   };
 
-  const cards = resumes.map((resume) => (
-    <CardSmall
-      key={resume.id}
-      data={resume}
-      isViewed={viewedCardIds.includes(resume.id)}
-      isFavourite={favoriteCardIds.includes(resume.id)}
-      pdfLink=""
-      onClickLike={() => onToggleFavorite(resume.id)}
-      onClickDetails={() => openPopup(resume.id)}
-      onClickTelegram={() => console.log('test')}
-      onClickEmail={() => console.log('test')}
-      onClickDownload={() => console.log('test')}
-    />
-  ));
+  const fetchMoreData = () => {
+    setTimeout(() => {
+      setcardsArray(cardsArray.concat(resumes));
+    }, 1500);
+  };
+
+  // const cards = resumes.map((resume) => (
+  //   <CardSmall
+  //     key={resume.id}
+  //     data={resume}
+  //     isViewed={viewedCardIds.includes(resume.id)}
+  //     isFavourite={favoriteCardIds.includes(resume.id)}
+  //     pdfLink=""
+  //     onClickLike={() => onToggleFavorite(resume.id)}
+  //     onClickDetails={() => openPopup(resume.id)}
+  //     onClickTelegram={() => console.log('test')}
+  //     onClickEmail={() => console.log('test')}
+  //     onClickDownload={() => console.log('test')}
+  //   />
+  // ));
 
   return (
     <>
@@ -77,8 +88,34 @@ function Main() {
           <div className={styles.main__cards}>
             <SearchBar value="Поиск" />
             {/* // TODO: здесь сделать массив по карточкам */}
-            {cards.length > 0 ? (
-              <div className={styles['main__cards-container']}>{cards}</div>
+            {cardsArray.length !== 0 ? (
+              <InfiniteScroll
+                dataLength={cardsArray.length} //This is important field to render the next data
+                next={fetchMoreData}
+                hasMore={true}
+                loader={
+                  <Box sx={{ width: '100%', mt: 10 }}>
+                    <LinearProgress />
+                  </Box>
+                }
+              >
+                <div className={styles['main__cards-container']}>
+                  {cardsArray.map((resume: any) => (
+                    <CardSmall
+                      key={resume.id}
+                      data={resume}
+                      isViewed={viewedCardIds.includes(resume.id)}
+                      isFavourite={favoriteCardIds.includes(resume.id)}
+                      pdfLink=""
+                      onClickLike={() => onToggleFavorite(resume.id)}
+                      onClickDetails={() => openPopup(resume.id)}
+                      onClickTelegram={() => console.log('test')}
+                      onClickEmail={() => console.log('test')}
+                      onClickDownload={() => console.log('test')}
+                    />
+                  ))}
+                </div>
+              </InfiniteScroll>
             ) : (
               <NotFoundErrorMessage />
             )}
