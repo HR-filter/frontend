@@ -25,7 +25,7 @@ const AvatarResume: FC<{
                   fontSize: `11px`,
                   color: '#B5B5B7',
                   backgroundColor: '#FFFFFF',
-                  transform: 'translate(-12px, -12px)',
+                  transform: 'translate(-18px, -18px)',
                 }}
                 alt={`Количество дополнительных достижений у кандидата: ${badgeCount}`}
               >
@@ -35,12 +35,12 @@ const AvatarResume: FC<{
           >
             <Avatar
               sx={{
-                width: '24px',
-                height: '24px',
+                width: '32px',
+                height: '32px',
                 fontSize: `11px`,
                 color: '#B5B5B7',
                 backgroundColor: '#FFFFFF',
-                transform: 'translate(-8px, -8px)',
+                transform: 'translate(-12px, -12px)',
               }}
             >
               <Avatar
