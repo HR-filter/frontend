@@ -6,9 +6,12 @@ import { FC } from 'react';
 const IconButtonClose: FC<{
   onClick: () => void;
 }> = ({ onClick }) => {
+  const handleClose = () => {
+    onClick();
+  };
   return (
     <IconButton
-      onClick={onClick}
+      onClick={handleClose}
       sx={{
         width: '36px',
         height: '36px',
