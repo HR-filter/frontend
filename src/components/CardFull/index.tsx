@@ -30,7 +30,6 @@ import styles from './style.module.scss';
 
 const CardFull: FC<{
   data: ResumeDataType;
-  isViewed: boolean;
   isFavourite: boolean;
   onClickLike: () => void;
   onClickTelegram: () => void;
@@ -73,10 +72,10 @@ const CardFull: FC<{
           }}
         >
           <FavouriteToggleResume
-            isEnabled={isFavourite}
-            isActive={true}
+            isEnabled={true}
+            isActive={isFavourite}
             value={isFavourite}
-            onChange={onClickLike}
+            onChange={() => onClickLike()}
           />
           <IconButtonClose onClick={onClickClose} />
         </Box>
