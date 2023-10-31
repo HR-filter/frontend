@@ -40,7 +40,7 @@ npm run preview
 
 ## Архив с кодом
 
-https://disk.yandex.ru/d/McoDoaH9yeR46Q
+[https://disk.yandex.ru/d/McoDoaH9yeR46Q](https://disk.yandex.ru/d/Pt2UoBMFFy416g)
 
 ## Архив со скриншотами
 
