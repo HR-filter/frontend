@@ -2,11 +2,11 @@
 
 ## Команда
 
-- 🤹 Константин <a href="https://t.me/alter_const" target="_blank">@alter_const</a>
+- 🤹 Константин <a href="https://t.me/alter_const" target="_blank">@alter_const</a> [git](https://github.com/ConstantineEpifanov)
 
-- 👨‍💻 Семён <a href="https://t.me/kavabunga" target="_blank">@kavabunga</a>
+- 👨‍💻 Семён <a href="https://t.me/kavabunga" target="_blank">@kavabunga</a> [git](https://github.com/kavabunga)
 
-- 🛫 Алина <a href="https://t.me/multilina" target="_blank">@multilina</a>
+- 🛫 Алина <a href="https://t.me/multilina" target="_blank">@multilina</a> [git](https://github.com/AlinaLvova)
 
 ## Стек технологий
 
