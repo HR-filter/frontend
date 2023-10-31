@@ -91,6 +91,8 @@ function Main() {
         isOpen={popupId !== null}
         id={popupId}
         onClose={closePopup}
+        isFavourite={favoriteCardIds.includes(popupId)}
+        onToggleFavorite={() => onToggleFavorite(popupId)}
       />
     </>
   );
