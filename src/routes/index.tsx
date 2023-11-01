@@ -84,7 +84,6 @@ const router = createBrowserRouter(
                   />
                   <CardFull
                     data={demoResume}
-                    isViewed={false}
                     isFavourite={false}
                     pdfLink="http://ya.ru"
                     onClickLike={() => console.log('test')}
@@ -101,5 +100,8 @@ const router = createBrowserRouter(
       </Route>
     </>,
   ),
+  {
+    basename: '/frontend/',
+  },
 );
 export default router;
